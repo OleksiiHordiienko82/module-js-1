@@ -172,3 +172,7 @@ console.log(add(5, 10, 15));
 // Вызов makeMessage('Scanner', 3500) возвращает "You picked Scanner, price per item is 3500 credits"
 // Вызов makeMessage('Reactor', 8000) возвращает "You picked Reactor, price per item is 8000 credits"
 // Вызов makeMessage('Engine', 4070) возвращает "You picked Engine, price per item is 4070 credits"
+function makeMessage(name, price) {
+  const message = `You picked ${name}, price per item is ${price} credits`;
+  return message;
+}

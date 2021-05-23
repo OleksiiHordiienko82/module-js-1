@@ -176,3 +176,463 @@ function makeMessage(name, price) {
   const message = `You picked ${name}, price per item is ${price} credits`;
   return message;
 }
+// Задание - 11
+//Функция calculateTotalPrice считает и возвращает общую сумму покупки.Она принимает два параметра,
+// значения которых будут задаваться во время её вызова.
+//orderedQuantity - количество единиц товара в заказе;
+//pricePerItem - цена одной единицы товара.
+//Дополни код функции так, чтобы в переменную totalPrice
+//записывалась общая сумма покупки, результат умножения кол - ва товаров на цену одного.
+//Объявлена функция calculateTotalPrice (orderedQuantity, pricePerItem)
+//Вызов calculateTotalPrice(5, 100) возвращает 500
+//Вызов calculateTotalPrice(8, 60) возвращает 480
+//Вызов calculateTotalPrice('3, 400) возвращает 1200
+//Вызов calculateTotalPrice(1, 3500) возвращает 3500
+//Вызов calculateTotalPrice(12, 70) возвращает 840
+//Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+function calculateTotalPrice(orderedQuantity, pricePerItem) {
+  const totalPrice = orderedQuantity * pricePerItem;
+  return totalPrice;
+}
+// Задание - 12
+// Функция makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee)
+// составляет и возвращает сообщение о покупке ремонтных дроидов.Она объявляет три параметра,
+//   значения которых будут задаваться во время её вызова.
+
+// orderedQuantity - количество дроидов в заказе
+// pricePerDroid - цена одного дроида
+// deliveryFee - стоимость доставки
+// Дополни код функции так, чтобы она возвращала сообщение о заказе в формате
+// "You ordered droids worth <total price> credits. Delivery(<delivery fee> credits) is included in total price.".
+// Не забудь о цене доставки при вычислениях общей стоимости.
+// Объявлена функция makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee)
+// Вызов makeOrderMessage(2, 100, 50) возвращает "You ordered droids worth 250 credits. Delivery (50 credits) is included in total price."
+// Вызов makeOrderMessage(4, 300, 100) возвращает "You ordered droids worth 1300 credits. Delivery (100 credits) is included in total price."
+// Вызов makeOrderMessage(10, 70, 200) возвращает "You ordered droids worth 900 credits. Delivery (200 credits) is included in total price."
+function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee) {
+  const totalPrice = pricePerDroid * orderedQuantity + deliveryFee;
+  const message = `You ordered droids worth ${totalPrice} credits. 
+  Delivery (${deliveryFee} credits) is included in total price.`;
+
+  return message;
+}
+// Задание - 13
+// Функция isAdult объявляет один параметр age(возраст), значение которого будет задаваться
+// во время её вызова.Присвой переменной passed выражение проверки
+// возраста пользователя на совершеннолетие.Человек считается совершеннолетним
+// в возрасте 18 лет и старше.
+// Объявлена функция isAdult(age)
+// В выражении проверки используется оператор >=
+// Вызов isAdult(20) возвращает true
+// Вызов isAdult(14) возвращает false
+// Вызов isAdult(8) возвращает false
+// Вызов isAdult(37) возвращает true
+
+function isAdult(age) {
+  const passed = age >= 18;
+  return passed;
+}
+// Задание - 14
+// Функция isValidPassword(password) проверяет равенство сохранённого и введённого паролей
+// и возвращает результат проверки - буль true или false.Переменная SAVED_PASSWORD хранит значение
+// ранее сохраненного пароля.Введённый пароль передаётся в параметр password.
+// Присвой переменной isMatch выражение проверки равенства введённого
+// и сохранённого ранее паролей.Результатом выражения проверки должно быть true,
+//   если значения совпадают, и false, если нет.
+//   Объявлена функция isValidPassword(password)
+// В выражении проверки паролей использован оператор ===
+// Вызов isValidPassword("mangodab3st") возвращает false
+// Вызов isValidPassword("kiwirul3z") возвращает false
+// Вызов isValidPassword("jqueryismyjam") возвращает true
+function isValidPassword(password) {
+  const SAVED_PASSWORD = "jqueryismyjam";
+  const isMatch = SAVED_PASSWORD === password;
+
+  return isMatch;
+}
+// Задание - 15
+// Добавь выражение проверки совершеннолетия пользователя, значения параметра age,
+//   в условие для инструкции if.
+
+// Если пользователь совершеннолетний, должен выполняться блок if и в переменную message
+// записывается строка "You are an adult".
+// В противном случае должен выполняться блок else и записывается строка "You are a minor".
+// Объявлена функция checkAge(age).
+// В выражении проверки возраста использован оператор >=
+// Вызов checkAge(20) возвращает "You are an adult"
+// Вызов checkAge(8) возвращает "You are a minor"
+// Вызов checkAge(14) возвращает "You are an adult"
+// Вызов checkAge(38) возвращает "You are a minor"
+function checkAge(age) {
+  let message;
+  if (age >= 18) {
+    message = "You are an adult";
+  } else {
+    message = "You are a minor";
+  }
+  return message;
+}
+
+// Задание - 16
+// Функция checkStorage(available, ordered) проверяет возможность оформления
+// заказа и возвращает сообщение о результате.Она объявляет два параметра,
+//   значения которых будут задаваться во время её вызова:
+
+// available - общее количество товаров на складе
+// ordered - единиц товара в заказе
+// Используя ветвления дополни код функции так, что:
+
+// Если в заказе указано число, превышающее количество товаров на складе,
+//   в переменную message записывается строка "Not enough goods in stock!".
+// В противном случае записывается строка "Order is processed, our manager will contact you."
+// Объявлена функция checkStorage(available, ordered).
+// Вызов checkStorage(100, 50) возвращает "Order is processed, our manager will contact you."
+// Вызов checkStorage(100, 130) возвращает "Not enough goods in stock!"
+// Вызов checkStorage(200, 20) возвращает "Order is processed, our manager will contact you."
+// Вызов checkStorage(200, 150) возвращает "Order is processed, our manager will contact you."
+// Вызов checkStorage(150, 180) возвращает "Not enough goods in stock!"
+function checkStorage(available, ordered) {
+  let message;
+  if (available >= ordered) {
+    message = "Order is processed, our manager will contact you.";
+  } else {
+    message = "Not enough goods in stock!";
+  }
+  return message;
+}
+// Задание - 17
+// Замени выражения со стандартными математеческими операторами на комбинированный оператор
+// присвоения с добавлением, вычитанием, умножением и делением.
+// Значение переменной a равно 7
+// Использован оператор +=
+// Значение переменной b равно 6
+// Использован оператор -=
+// Значение переменной c равно 45
+// Использован оператор *=
+// Значение переменной d равно 2
+// Использован оператор /=
+let a = 5;
+let b = 10;
+let c = 15;
+let d = 20;
+
+a += 2;
+b -= 4;
+c *= 3;
+d /= 10;
+
+// Задание - 18
+// Станция по продаже ремонтных дроидов готова к запуску, осталось написать программное обеспечение для отдела продаж.
+
+// Функция makeTransaction(pricePerDroid, orderedQuantity, customerCredits) выполняет транзакцию по продаже дроидов и возвращает сообщение о результате операции. Она объявляет три параметра, значения которых будут задаваться во время её вызова:
+
+// pricePerDroid - цена одного дроида
+// orderedQuantity - кол-во заказанных дроидов
+// customerCredits - сумма средств на счету клиента
+// Дополни её следующим функционалом:
+
+// Объяви переменную totalPrice для хранения общей суммы заказа и присвой ей выражение расчёта этой суммы.
+// Добавь проверку сможет ли клиент оплатить заказ:
+// если сумма к оплате превышает количество кредитов на счету клиента, запиши в переменную message строку "Insufficient funds!";
+// в противном случае, вычти сумму покупки со счёта клиента и запиши в переменную message сообщение: "You ordered <число> droids, you have <число> credits left".
+//   Тесты
+// Объявлена функция makeTransaction(pricePerDroid, orderedQuantity, customerCredits)
+// Вызов makeTransaction(3000, 5, 23000) возвращает "You ordered 5 droids, you have 8000 credits left"
+// Вызов makeTransaction(1000, 3, 15000) возвращает "You ordered 3 droids, you have 12000 credits left"
+// Вызов makeTransaction(5000, 10, 8000) возвращает "Insufficient funds!"
+// Вызов makeTransaction(2000, 8, 10000) возвращает "Insufficient funds!"
+// Вызов makeTransaction(500, 10, 5000) возвращает "You ordered 10 droids, you have 0 credits left"
+function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+  let message;
+  const totalPrice = pricePerDroid * orderedQuantity;
+  if (totalPrice > customerCredits) {
+    message = "Insufficient funds!";
+  } else {
+    message = `You ordered ${orderedQuantity} droids, you have ${
+      customerCredits - totalPrice
+    } credits left`;
+  }
+
+  return message;
+}
+
+// Задание - 19
+// Функция checkPassword(password) получает пароль пользователя в параметр password,
+//   проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD
+// и возвращает сообщение о результате сравнения, хранящееся в переменной message.
+
+// Если значение параметра password равно null, значит пользователь отменил операцию
+// и в message записывается строка "Canceled by user!".
+// Если значение параметра password совпадает со значением ADMIN_PASSWORD, в переменную
+// message присваивается строка "Welcome!".
+// Если ни одно из предыдущих условий не выполнилось, в переменную message записывается
+// строка "Access denied, wrong password!".
+// Объявлена функция checkPassword(password)
+// Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
+// Вызов checkPassword(null) возвращает "Canceled by user!"
+// Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
+// Вызов checkPassword("jqueryismyjam") возвращает "Welcome!"
+function checkPassword(password) {
+  const ADMIN_PASSWORD = "jqueryismyjam";
+  let message;
+
+  if (password === null) {
+    message = "Canceled by user!";
+  } else if (password === "jqueryismyjam") {
+    message = "Welcome!";
+  } else {
+    message = "Access denied, wrong password!";
+  }
+
+  return message;
+}
+
+// Задание - 20
+// Функция checkStorage(available, ordered) проверяет возможность
+// оформления заказа и возвращает сообщение о результате.Она объявляет
+// два параметра, значения которых будут задаваться во время её вызова.
+
+// available - доступное количество товаров на складе
+// ordered - единиц товара в заказе
+// Используя ветвления дополни код функции так, что:
+
+// Если в заказе еще нет товаров, то есть значение параметра ordered равно 0,
+//   в переменную message присваивается строка "There are no products in the order!".
+// Eсли товаров в заказе больше чем доступно товаров на складе, то в переменную message
+// присваивается строка "Your order is too large, there are not enough items in stock!".
+// В противном случае в переменную message присваевается строка "The order is accepted,
+// our manager will contact you".
+// Объявлена функция checkStorage(available, ordered)
+// Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(100, 130) возвращает "Your order is too large, there are not enough items in stock!"
+// Вызов checkStorage(70, 0)возвращает "There are no products in the order!"
+// Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(200, 250) возвращает "Your order is too large, there are not enough items in stock!"
+// Вызов checkStorage(150, 0) возвращает "There are no products in the order!"
+function checkStorage(available, ordered) {
+  let message;
+
+  if (ordered === 0) {
+    message = "There are no products in the order!";
+  } else if (ordered > available) {
+    message = "Your order is too large, there are not enough items in stock!";
+  } else {
+    message = "The order is accepted, our manager will contact you";
+  }
+
+  return message;
+}
+// Задание - 21
+// Функция isNumberInRange(start, end, number) проверяет, входит ли число в промежуток.Она объявляет три параметра, значения которых будут задаваться во время её вызова:
+
+// number - число, вхождение которого проверяется
+// start - начало числового промежутка
+// end - конец числового промежутка
+// Присвой переменной isInRange выражение проверки вхождения number в числовой промеждуток от start до end.То есть число должно быть больше либо равно start и меньше либо
+// равно end.Результатом выражения проверки будет буль true или false.
+// Объявлена функция isNumberInRange(start, end, number)
+// В выражении проверки использован оператор &&
+// Вызов isNumberInRange(10, 30, 17) возвращает true
+// Вызов isNumberInRange(10, 30, 5) возвращает false
+// Вызов isNumberInRange(20, 50, 24) возвращает true
+// Вызов isNumberInRange(20, 50, 76) возвращает false
+function isNumberInRange(start, end, number) {
+  const isInRange = number >= start && number <= end; // Change this line
+
+  return isInRange;
+}
+
+// Задание - 22
+// Функция checkIfCanAccessContent(subType) проверяет, может ли пользователь получить
+// доступ к контенту.Проверка происходит по типу подписки.
+// Получить доступ могут только пользователи с подпиской pro или vip.
+
+// Присвой переменной canAccessContent выражение проверки подписки.
+// Если значение параметра subType равно строкам "pro" или "vip",
+//   пользователь получит доступ.Результатом выражения проверки будет буль true или false.
+//   Объявлена функция checkIfCanAccessContent(subType)
+// В выражении проверки использован оператор ||
+// Вызов checkIfCanAccessContent("pro") возвращает true
+// Вызов checkIfCanAccessContent("starter") возвращает false
+// Вызов checkIfCanAccessContent("vip") возвращает true
+// Вызов checkIfCanAccessContent("free") возвращает false
+function checkIfCanAccessContent(subType) {
+  const canAccessContent = subType === "pro" || subType === "vip";
+
+  return canAccessContent;
+}
+
+// Задание - 23
+// Функция isNumberNotInRange(start, end, number) проверяет, не входит ли число в промежуток. То есть число должно быть меньше либо равно start и больше либо равно end. Результатом выражения проверки будет буль true или false.
+
+// Она объявляет три параметра, значения которых будут задаваться во время её вызова:
+
+// number - число, не вхождение которого проверяется
+// start - начало числового промежутка
+// end - конец числового промежутка
+// Присвой переменной isNotInRange выражение инверсии значения переменной isInRange используя оператор!.
+// Объявлена функция isNumberNotInRange(start, end, number)
+// В выражении использован оператор !
+// Вызов isNumberNotInRange(10, 30, 17) возвращает false
+// Вызов isNumberNotInRange(10, 30, 5) возвращает true
+// Вызов isNumberNotInRange(20, 50, 24) возвращает false
+// Вызов isNumberNotInRange(20, 50, 76) возвращает true
+function isNumberNotInRange(start, end, number) {
+  const isInRange = number >= start && number <= end;
+  const isNotInRange = !isInRange; // Change this line
+
+  return isNotInRange;
+}
+
+// Задание - 24
+// Функция getDiscount(totalSpent) определяет значение скидки в зависимости
+// от общей суммы потраченных денег(параметр totalSpent) в магазине за всё
+// время(партнёрская программа).Скидка записывается в переменную discount и
+// возвращается из функции как результат её работы.
+
+// Используя ветвления и логические операторы, дополни код функции.
+
+// Если потрачено от 50000 ( включительно ) или больше кредитов - скидка 10% (золотой партнёр)
+// Если потрачено от 20000 (включительно) до 50000 кредитов - скидка 5% (серебрянный партнёр)
+// Если потрачено от 5000 (включительно) до 20000 кредитов - скидка 2% (бронзовый партнёр)
+// Если потрачено меньше чем 5000 кредитов - скидка 0 (базовый партнёр)
+// Значения скидок каждого уровня хранятся в одноимённых константах BASE_DISCOUNT,
+//   BRONZE_DISCOUNT, SILVER_DISCOUNT и GOLD_DISCOUNT.
+//   Объявлена функция getDiscount(totalSpent)
+// Вызов getDiscount(137000) возвращает 0.1
+// Вызов getDiscount(46900) возвращает 0.05
+// Вызов getDiscount(8250) возвращает 0.02
+// Вызов getDiscount(1300) возвращает 0
+// Вызов getDiscount(5000) возвращает 0.02
+// Вызов getDiscount(20000) возвращает 0.05
+// Вызов getDiscount(50000) возвращает 0.1
+function getDiscount(totalSpent) {
+  const BASE_DISCOUNT = 0;
+  const BRONZE_DISCOUNT = 0.02;
+  const SILVER_DISCOUNT = 0.05;
+  const GOLD_DISCOUNT = 0.1;
+  let discount;
+
+  if (totalSpent >= 50000) {
+    return (discount = GOLD_DISCOUNT);
+  } else if (totalSpent >= 20000 && totalSpent <= 50000) {
+    return (discount = SILVER_DISCOUNT);
+  } else if (totalSpent >= 5000 && totalSpent <= 20000) {
+    return (discount = BRONZE_DISCOUNT);
+  } else {
+    return (discount = BASE_DISCOUNT);
+  }
+
+  return discount;
+}
+
+// Задание - 25
+// Выполни рефакторинг решения задачи «Склад товаров», заменив инструкцию if...else тернарным оператором.
+// Объявлена функция checkStorage(available, ordered).
+// Использован тернарный оператор.
+// Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(100, 130) возвращает "Not enough goods in stock!"
+// Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(200, 150) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(150, 180) возвращает "Not enough goods in stock!"
+function checkStorage(available, ordered) {
+  let message;
+  message =
+    ordered > available
+      ? "Not enough goods in stock!"
+      : "The order is accepted, our manager will contact you";
+
+  return message;
+}
+
+// Задание - 26
+// Функция checkPassword(password) сравнивает переданный ей пароль(параметр password)
+// с сохранённым паролем администратора(константа ADMIN_PASSWORD) и возвращает строку
+// с сообщением о результате.
+// Используя тернарный оператор дополни функцию так, что:
+// Если значения password и ADMIN_PASSWORD совпадают, присвой переменной
+// message строку "Access is allowed".
+// В противном случае, присвой message строку "Access denied, wrong password!".
+// Объявлена функция checkPassword(password)
+// Использован тернарный оператор
+// Вызов checkPassword("jqueryismyjam") возвращает "Access is allowed"
+// Вызов checkPassword("angul4r1sl1f3") возвращает "Access denied, wrong password!"
+// Вызов checkPassword("r3actsux") возвращает "Access denied, wrong password!"
+function checkPassword(password) {
+  const ADMIN_PASSWORD = "jqueryismyjam";
+  let message;
+
+  message =
+    password === ADMIN_PASSWORD
+      ? "Access is allowed"
+      : "Access denied, wrong password!";
+
+  return message;
+}
+
+// Задание - 27
+// Функция getSubscriptionPrice(type) получает строку с типом подписки
+// пользователя(параметр type), проверяет её на совпадение с тремя возможными типами
+// ежемесячной подписки и возвращает цену хранящуюся в переменной price.
+// Если значение параметра type это строка:
+// "starter" - цена подписки 0 кредитов.
+// "professional" - цена подписки 20 кредитов.
+// "organization" - цена подписки 50 кредитов.
+// Изначально в теле функции была инструкция if...else, которая выглядела вот так.
+// Объявлена функция getSubscriptionPrice(type)
+// Вызов getSubscriptionPrice("professional") возвращает число 20
+// Вызов getSubscriptionPrice("organization") возвращает число 50
+// Вызов getSubscriptionPrice("starter") возвращает число 0
+
+function getSubscriptionPrice(type) {
+  let price;
+
+  switch (type) {
+    case "professional":
+      price = 20;
+      break;
+
+    case "organization":
+      price = 50;
+      break;
+
+    case "starter":
+      price = 0;
+      break;
+  }
+  return price;
+}
+
+// Задание - 28
+// Функция checkPassword(password) получает пароль в параметр password, проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD и возвращает сообщение о результате сравнения, хранящееся в переменной message.
+
+// Если значение параметра password:
+
+// равно null, значит пользователь отменил операцию и в message записывается строка "Canceled by user!".
+// совпадает со значением ADMIN_PASSWORD, в переменную message присваивается строка "Welcome!".
+// не удобвлетворяет ни одному из предыдущих условий, в переменную message записывается строка "Access denied, wrong password!".
+// Проведи рефакторинг кода, заменив инструкцию if..else на switch, и не забудь о блоке default (аналог else).
+// Объявлена функция checkPassword(password)
+// Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
+// Вызов checkPassword(null) возвращает "Canceled by user!"
+// Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
+// Вызов checkPassword('"jqueryismyjam") возвращает "Welcome!"
+
+function checkPassword(password) {
+  const ADMIN_PASSWORD = "jqueryismyjam";
+  let message;
+
+  switch (password) {
+    case null:
+      message = "Canceled by user!";
+      break;
+
+    case "jqueryismyjam":
+      message = "Welcome!";
+      break;
+
+    default:
+      message = "Access denied, wrong password!";
+  }
+  return message;
+}

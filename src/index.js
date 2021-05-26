@@ -732,7 +732,7 @@ function getSubstring(string, length) {
   const substring = string.slice(0, length);
   return substring;
 }
-
+// Задание - 33
 // Функция formatMessage(message, maxLength) принимает строку(параметр message) и форматирует её, если длина превышает значение в параметре maxLength.
 
 // Дополни код функции так, что если длина строки:
@@ -760,7 +760,7 @@ function formatMessage(message, maxLength) {
   /// Change code above this line
   return result;
 }
-
+// Задание - 34
 // Функция normalizeInput(input) принимает строку (параметр input) и возвращает такую же строку, но в нижнем регистре. Присвой переменной normalizedInput выражение создания строки в нижнем регистре из параметра input.
 
 // Тесты
@@ -773,7 +773,7 @@ function normalizeInput(input) {
 
   return normalizedInput;
 }
-
+// Задание - 35
 // Функция checkName(fullname, name) принимает два параметра и возвращает буль true или false - результат проверки вхождения подстроки name в строку fullname.
 
 // fullname - полное имя состоящее из двух слов (имени и фамилии) разделённых пробелом.
@@ -791,7 +791,7 @@ function checkForName(fullName, name) {
   const result = fullName.includes(name); // Change this line
   return result;
 }
-
+// Задание - 36
 // Функция checkForSpam(message) принимает строку(параметр message),
 //   проверяет её на содержание запрещенных слов spam и sale, и возвращает
 // результат проверки.Слова в строке параметра message могут быть в произвольном
@@ -823,7 +823,7 @@ function checkForSpam(message) {
 }
 
 //Модуль 2
-
+// Задание - 1
 //Запиши условие в инструкции if так, чтобы функция работала правильно.
 // Объявлена функция checkAge(age).
 // В выражении проверки возраста использован оператор >=
@@ -838,4 +838,25 @@ function checkAge(age) {
     return "You are an adult";
   }
   return "You are a minor";
+}
+
+// Задание - 2
+// Функция checkPassword получает пароль пользователя в параметр password,
+//   проверяет его на совпадение с паролем администратора в переменной
+// ADMIN_PASSWORD и возвращает сообщение о результате сравнения.
+// Проведи рефакторинг кода функции checkStorage используя паттерн «ранний возврат»:
+// удали переменную message
+// удали else
+// код должен работать так же, как и до оптимизации
+// Объявлена функция checkPassword(password)
+// Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
+// Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
+// Вызов checkPassword("jqueryismyjam") возвращает "Welcome!"
+
+function checkPassword(password) {
+  const ADMIN_PASSWORD = "jqueryismyjam";
+  if (password === ADMIN_PASSWORD) {
+    return "Welcome!";
+  }
+  return "Access denied, wrong password!";
 }

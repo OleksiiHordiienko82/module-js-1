@@ -860,3 +860,97 @@ function checkPassword(password) {
   }
   return "Access denied, wrong password!";
 }
+
+// Задание - 3
+// Функция checkStorage проверяет возможность оформления заказа
+// и возвращает сообщение о результате.Она принимает два параметра,
+//   значения которых будут задаваться во время её вызова.
+
+// available - доступное количество товаров на складе
+// ordered - количество единиц товара в заказе
+// Проведи рефакторинг кода функции checkStorage используя паттерн «ранний возврат».
+
+// Тесты
+// Объявлена функция checkStorage(available, ordered)
+// Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(100, 130) возвращает "Your order is too large, not enough goods in stock!"
+// Вызов checkStorage(70, 0) возвращает "Your order is empty!"
+// Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(200, 250) возвращает "Your order is too large, not enough goods in stock!"
+// Вызов checkStorage(150, 0) возвращает "Your order is empty!"
+function checkStorage(available, ordered) {
+  if (ordered === 0) {
+    return "Your order is empty!";
+  }
+
+  if (ordered > available) {
+    return "Your order is too large, not enough goods in stock!";
+  }
+
+  return "The order is accepted, our manager will contact you";
+}
+
+// Задание - 4
+// Объяви переменную fruits и присвой ей массив фруктов -
+//   строк "apple", "plum", "pear" и "orange".
+// Тесты
+// Объявлена переменная fruits
+// Значение переменной fruits это массив ["apple", "plum", "pear", "orange"]
+const fruits = ["apple", "plum", "pear", "orange"];
+Объяви три переменные и присвой каждой из них значение, используя нотацию квадратных скобок.
+
+// Задание - 5
+// Имя переменной	Значение переменной
+// firstElement	первый элемент массива
+// secondElement	второй элемент массива
+// lastElement	последний элемент массива
+// Тесты
+// Объявлена переменная firstElement
+// Значение переменной firstElement это строка "apple"
+// Объявлена переменная secondElement
+// Значение переменной secondElement это строка "plum"
+// Объявлена переменная lastElement
+// Значение переменной lastElement это строка "orange"
+
+const fruits = ["apple", "plum", "pear", "orange"];
+
+const firstElement = fruits[0];  
+                      
+const secondElement = fruits[1];
+
+const lastElement = fruits[fruits.length - 1];
+
+// Задание - 5
+// Переопредели значения элементов с индексами 1 и 3.
+// Замени "plum" на "peach", а "orange" на "banana".
+
+// Тесты
+// Объявлена переменная fruits
+// Значение переменной fruits это массив ["apple", "peach", "pear", "banana"]
+const fruits = ["apple", "plum", "pear", "orange"];
+fruits[1] = "peach";
+fruits[3] = "banana"
+
+// Задание - 6
+// const fruits = ["apple", "peach", "pear", "banana"];
+
+const fruitsArrayLength = fruits.length
+
+// Задание - 7
+// Объяви две перемнные:
+// Имя переменной	Ожидаемое значение
+// lastElementIndex	Мндекс последнего элемента масcива
+// fruits через длина_массива - 1
+// lastElement	Значение последнего элемента массива
+// Тесты
+// Объявлена переменная lastElementIndex
+// Значение переменной lastElementIndex это число 3
+// Объявлена переменная lastElement
+// Значение переменной lastElementIndex это строка "banana"
+const fruits = ["apple", "peach", "pear", "banana"];
+const lastElementIndex = fruits.length - 1;  
+const lastElement = fruits[lastElementIndex];
+
+
+
+

@@ -22,17 +22,34 @@
 
 // getSubstring("Hello world");
 
-function formatMessage(message, maxLength) {
-  let result;
-  // Change code below this line
+// function formatMessage(message, maxLength) {
+//   let result;
+//   // Change code below this line
 
-  if (message.length <= maxLength) {
-    result = message;
-  } else if (message.length > maxLength) {
-    result = message.slice(0, maxLength) + "...";
-  }
+//   if (message.length <= maxLength) {
+//     result = message;
+//   } else if (message.length > maxLength) {
+//     result = message.slice(0, maxLength) + "...";
+//   }
 
-  /// Change code above this line
-  return result;
+//   /// Change code above this line
+//   return result;
+// }
+// console.log(formatMessage("Curabitur ligula sapien", 23));
+// const name = "Mango";
+// console.log(name.split(""));
+// const message = "JavaScript essentials";
+// console.log(message.split(" "));
+
+// function splitMessage(message, delimeter) {
+//   let words;
+
+//   return words;
+// }
+// console.log(message.split(" "));
+function splitMessage(message, delimeter) {
+  let words;
+  word = "Mango hurries to the train";
+  return words;
 }
-console.log(formatMessage("Curabitur ligula sapien", 23));
+console.log;

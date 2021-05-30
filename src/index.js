@@ -920,7 +920,7 @@ const secondElement = fruits[1];
 
 const lastElement = fruits[fruits.length - 1];
 
-// Задание - 5
+// Задание - 6
 // Переопредели значения элементов с индексами 1 и 3.
 // Замени "plum" на "peach", а "orange" на "banana".
 
@@ -931,12 +931,12 @@ const fruits = ["apple", "plum", "pear", "orange"];
 fruits[1] = "peach";
 fruits[3] = "banana"
 
-// Задание - 6
+// Задание - 7
 // const fruits = ["apple", "peach", "pear", "banana"];
 
 const fruitsArrayLength = fruits.length
 
-// Задание - 7
+// Задание - 8
 // Объяви две перемнные:
 // Имя переменной	Ожидаемое значение
 // lastElementIndex	Мндекс последнего элемента масcива
@@ -951,6 +951,77 @@ const fruits = ["apple", "peach", "pear", "banana"];
 const lastElementIndex = fruits.length - 1;  
 const lastElement = fruits[lastElementIndex];
 
+// Задание - 9
+// Напиши функцию getExtremeElements(array)
+// которая принимает один параметр array - массив
+// элементов произвольной длины.Функция должна возвращать
+// массив из двух элементов - первого и последнего элемента параметра array.
+// Объявлена функция getExtremeElements(array)
+// Вызов getExtremeElements([1, 2, 3, 4, 5]) возвращает [1, 5]
+// Вызов getExtremeElements(["Earth", "Mars", "Venus"]) возвращает ["Earth", "Venus"]
+// Вызов getExtremeElements(["apple", "peach", "pear", "banana"]) возвращает ["apple", "banana"]
+function getExtremeElements(array) {
+ const newArray = [array[0], array[array.length-1]];
+return newArray;
+  
+}
+
+// Задание - 10
+// Дополни код функции splitMessage(message, delimeter) так,
+//   чтобы она возвращала в переменной words результат разделения
+// строки message по разделителю delimeter - массив строк.
+// Объявлена функция splitMessage(message, delimeter)
+// Вызов splitMessage("Mango hurries to the train", " ") возвращает
+// ["Mango", "hurries", "to", "the", "train"]
+// Вызов splitMessage("Mango", "") возвращает ["M", "a", "n", "g", "o"]
+// Вызов splitMessage("best_for_week", "_") возвращает["best", "for", "week"]
+
+function splitMessage(message, delimeter) {
+  let words;
+  words = message.split(delimeter);
+  return words;
+}
+
+// Задание - 11
+// Сервису гравировки украшений нужна функция, которая
+// бы автоматически считала цену гравировки, в зависимости
+// от количества слов и цены за слово.
+// Объявлена функция calculateEngravingPrice(message, pricePerWord).
+// Эта функция принимает строку, состоящую из слов разделённых только
+// пробелами(параметр message) и цену гравировки одного слова(параметр pricePerWord).
+// Напиши тело функции, чтобы она возвращала общую стоимость гравировки всех слов в строке.
+// Объявлена функция calculateEngravingPrice(message, pricePerWord)
+// Вызов calculateEngravingPrice("JavaScript is in my blood", 10) возвращает 50
+// Вызов calculateEngravingPrice("JavaScript is in my blood", 20) возвращает 100
+// Вызов calculateEngravingPrice("Web-development is creative work", 40) возвращает 160
+// Вызов calculateEngravingPrice("Web-development is creative work", 20) возвращает 80
 
 
+function calculateEngravingPrice(message, pricePerWord) {
+   
+ const newArray = message.split(" ");
+ const qr = newArray.length;
+  
+ return qr*pricePerWord
 
+
+}
+
+// Задание - 12
+// Дополни код функции makeStringFromArray(array, delimeter)
+// так, чтобы она возвращала в переменной string результат соединения
+// элементов массива array c разделителем delimeter - строку.
+
+// Тесты
+// Объявлена функция makeStringFromArray(array, delimeter)
+// Вызов makeStringFromArray(["Mango", "hurries", "to", "the", "train"], " ")
+// возвращает "Mango hurries to the train"
+// Вызов makeStringFromArray(["M", "a", "n", "g", "o"], "")) возвращает "Mango"
+// Вызов makeStringFromArray(["top", "picks", "for", "you"], "_") возвращает "top_picks_for_you"
+
+function makeStringFromArray(array, delimeter) {
+  let string;
+
+  string = array.join(delimeter);
+  return string;
+}

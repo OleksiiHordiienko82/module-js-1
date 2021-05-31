@@ -1025,3 +1025,210 @@ function makeStringFromArray(array, delimeter) {
   string = array.join(delimeter);
   return string;
 }
+
+// Задание - 13
+// Напиши функцию slugify(title) которая принимает заголовок статьи,
+//   параметр title, и возвращает slug, созданный из этой строки.
+
+// Значением параметра title будут строки, слова которых разделены только пробелами
+// Все символы slug должны быть в нижнем регистре
+// Все слова slug должна быть разделены тире
+// Тесты
+// Объявлена функция slugify(title)
+// Вызов slugify("Arrays for begginers") возвращает "arrays-for-begginers"
+// Вызов slugify("English for developer") возвращает "english-for-developer"
+// Вызов slugify("Ten secrets of JavaScript") возвращает "ten-secrets-of-javascript"
+// Вызов slugify("How to become a JUNIOR developer in TWO WEEKS") возвращает
+// "how-to-become-a-junior-developer-in-two-weeks"
+function slugify(title) {
+  // Change code below this line
+
+const array = title.split(" ");
+const string = array.join("-");
+const stringLower = string.toLowerCase();
+  
+  
+  
+return stringLower;
+  // Change code above this line
+}
+
+// Задание 14
+// Дополни код так, чтобы переменные содержали частичные копии исходного массива fruits.
+
+// firstTwoEls - массив из первых двух элементов
+// nonExtremeEls - массив из всех элементов кроме первого и последнего
+// lastThreeEls - массив из трёх последних элементов
+// Тесты
+// Объявлена переменная fruits
+// Значение переменной fruits это массив ["apple", "plum", "pear", "orange", "banana"]
+// Объявлена переменная firstTwoEls
+// Значение переменной firstTwoEls это массив ["apple", "plum"]
+// Объявлена переменная nonExtremeEls
+// Значение переменной nonExtremeEls это массив ["plum", "pear", "orange"]
+// Объявлена переменная lastThreeEls
+// Значение переменной lastThreeEls это массив ["pear", "orange", "banana"]
+// Переменной lastThreeEls присвоена копия части массива fruits после применения
+//метода slice с правильными аргументами
+
+const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+
+// Change code below this line
+const firstTwoEls = fruits.slice(0, 2);
+const nonExtremeEls = fruits.slice(1, fruits.length-1);  
+const lastThreeEls = fruits.slice(-3);
+// Задание 15
+// Дополни код так, чтобы в переменной allClients получился
+// массив всех элементов массивов oldClients и newClients.
+
+// Тесты
+// Объявлена переменная oldClients
+// Значение переменной oldClients это массив ["Mango", "Ajax", "Poly", "Kiwi"]
+// Объявлена переменная newClients
+// Значение переменной newClients это массив ["Peach", "Houston"]
+// Объявлена переменная allClients
+// Значение переменной allClients это массив ["Mango", "Ajax", "Poly", "Kiwi", "Peach", "Houston"]
+// Переменной allClients присвоен массив после применения метода concat с правильными аргументами
+const oldClients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+const newClients = ['Peach', 'Houston'];
+
+const allClients = oldClients.concat(newClients); // Change this line
+
+// Задание 16
+// Напиши функцию makeArray(firstArray, secondArray, maxLength)
+// для создания нового массива со всеми элементами двух исходных
+// firstArray и secondArray.Параметр maxLength содержит максимально
+// допустимую длину нового массива.
+
+// Если количество элементов нового массива больше maxLength,
+//   функция должна вернуть копию массива длиной maxLength элементов.
+// В противном случае функция должна вернуть новый массив целиком.
+
+// Тесты
+// Объявлена функция makeArray(firstArray, secondArray, maxLength)
+// Вызов makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3) возвращает ["Mango", "Poly", "Ajax"]
+// Вызов makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4) возвращает ["Mango", "Poly", "Houston", "Ajax"]
+// Вызов makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3) возвращает ["Mango", "Ajax", "Chelsea"]
+// Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2) возвращает ["Earth", "Jupiter"]
+// Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4) возвращает ["Earth", "Jupiter", "Neptune", "Uranus"]
+// Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0) возвращает []
+// Вызов функции makeArray() со случайными массивами и случайным числом возвращает правильный массив
+
+function makeArray(firstArray, secondArray, maxLength) {
+    // Change code below this line
+const bigArray = firstArray.concat(secondArray);
+const bigArrayLength = bigArray.slice(0, maxLength);
+
+return bigArrayLength;
+    // Change code above this line
+}
+  
+
+// Задание 17
+// Дополни цикл for так, чтобы он логировал все целые
+// числа в диапазоне от start до end включительно.
+// Тесты
+// Объявлена переменная start
+// Значение переменной start это число 3
+// Объявлена переменная end
+// Значение переменной end это число 7
+// Объявлена переменная i - счётчик цикла
+// Начальное значение переменной i равно 3
+// Условие цикла приводится к true до тех пор, пока i меньше либо равно 7
+// На каждой итерации значение переменной i увеличивается на единицу
+// Вывод в консоль переменной i покажет числа 3, 4, 5, 6, 7
+
+const start = 3;
+const end = 7;
+
+for (let i = start; i <= end ; i += 1 ) { // Change this line
+  console.log(i);
+}
+
+// Задание 18
+// Напиши функцию calculateTotal(number), которая принимает
+// целое число(параметр number) и возвращает сумму всех целых
+// чисел от единицы и до этого числа.Например, если number равно 3,
+//   то сумма это 1 + 2 + 3, то есть 6.
+
+// Тесты
+// Объявлена функция calculateTotal(number)
+// Вызов функции calculateTotal(1) возвращает 1
+// Вызов функции calculateTotal(3) возвращает 6
+// Вызов функции calculateTotal(7) возвращает 28
+// Вызов функции calculateTotal(18) возвращает 171
+// Вызов функции calculateTotal(24) возвращает 300
+// Вызов функции calculateTotal() со случайным числом возвращает правильное значение
+function calculateTotal(number) {
+  let sum = 0;
+  for (let i = 1; i<= number; i+=1) {
+   sum += i;
+  }
+return sum
+
+}
+// Задание 19
+// Дополни код цикла for так, чтобы он последовательно логировал все элементы массива fruits.
+
+// Тесты
+// Объявлена переменная fruits
+// Значение переменной fruits это массив ["apple", "plum", "pear", "orange"]
+// Объявлена переменная i - счётчик цикла
+// Начальное значение переменной i равно 0
+// Условие цикла приводится к true до тех пор, пока i меньше 4
+// На каждой итерации значение переменной i увеличивается на единицу
+// В теле цикла for объявляется переменная const fruit и этой переменной присваивается значение - элемент массива
+// В теле цикла for используется вывод в консоль переменной fruit
+
+const fruits = ['apple', 'plum', 'pear', 'orange'];
+
+for (let i = 0; i< fruits.length; i+=1) { 
+  const fruit = fruits[i]; 
+  console.log(fruit);
+}
+
+// Задание 20
+// Напиши функцию calculateTotalPrice(order), которая принимает один параметр
+// order - массив чисел, и рассчитывает общую сумму его элементов.Общая сумма
+// элементов должна сохраняться в переменной total, которая возвращается, как результат работы функции.
+
+// Тесты
+// Объявлена функция calculateTotalPrice(order)
+// Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138
+// Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503
+// Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116
+// Вызов функции calculateTotalPrice() со случайным массивом возвращает правильное значение
+
+function calculateTotalPrice(order) {
+  let total = 0;
+  
+for (let i = 0; i<= order.length-1; i+=1) {
+   total= total + order[i];
+  }
+  
+  return total;
+}
+
+// Задание 21
+// Напиши функцию findLongestWord(string) которая принимает
+// произвольную строку состоящую только из слов разделённых пробелом
+//   (параметр string) и возвращает самое длинное слово в этой строке.
+
+// Тесты
+// Объявлена функция findLongestWord(string)
+// Вызов функции findLongestWord("The quick brown fox jumped over the lazy dog") возвращает jumped
+// Вызов функции findLongestWord("Google do a roll") возвращает Google
+// Вызов функции findLongestWord("May the force be with you") возвращает force
+// Вызов функции findLongestWord() со случайной строкой возвращает правильное значение
+function findLongestWord(string) {
+const array = string.split(" ");
+ let word = "";
+  for( let i=0; i<array.length; i+=1) {
+  
+  if (word.length<array[i].length) {
+  
+  word=array[i]
+  }
+  } 
+return word
+}

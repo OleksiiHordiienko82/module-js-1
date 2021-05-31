@@ -47,9 +47,40 @@
 //   return words;
 // }
 // console.log(message.split(" "));
-function splitMessage(message, delimeter) {
-  let words;
-  word = "Mango hurries to the train";
-  return words;
+// function splitMessage(message, delimeter) {
+//   let words;
+//   word = "Mango hurries to the train";
+//   return words;
+// }
+// console.log;
+// function slugify(title) {
+//   // Change code below this line
+
+//   const array = title.split(" ");
+//   const string = array.join("-");
+//   const lowerString = string.toLowerCase();
+//   console.log(lowerString);
+
+//   // return array.join(" ");
+//   // Change code above this line
+// }
+// slugify("Arrays for begginers");
+
+const max = 10;
+
+for (let i = 0; i < max; i += 1) {
+  console.log(i);
 }
-console.log;
+Задание
+Дополни цикл for так, чтобы он логировал все целые числа в диапазоне от start до end включительно.
+
+Тесты
+Объявлена переменная start
+Значение переменной start это число 3
+Объявлена переменная end
+Значение переменной end это число 7
+Объявлена переменная i - счётчик цикла
+Начальное значение переменной i равно 3
+Условие цикла приводится к true до тех пор, пока i меньше либо равно 7
+На каждой итерации значение переменной i увеличивается на единицу
+Вывод в консоль переменной i покажет числа 3, 4, 5, 6, 7

@@ -85,20 +85,76 @@
 // На каждой итерации значение переменной i увеличивается на единицу
 // Вывод в консоль переменной i покажет числа 3, 4, 5, 6, 7
 
-function filterArray(numbers, value) {
+// function filterArray(numbers, value) {
+//   // Change code below this line
+
+//   let array = [];
+//   console.log(numbers);
+//   for (let i = 0; i <= numbers.length - 1; i += 1) {
+//     if (numbers[i] > value) {
+//       array.push(numbers[i]);
+//     }
+//   }
+//   console.log(array);
+//   return array;
+
+//   // Change code above this line
+// }
+
+// filterArray([1, 2, 3, 4, 5], 3);
+
+function calculateTotalPrice(order) {
+  let total = 0;
   // Change code below this line
 
-  let array = [];
-  console.log(numbers);
-  for (let i = 0; i <= numbers.length - 1; i += 1) {
-    if (numbers[i] > value) {
-      array.push(numbers[i]);
-    }
+  for (let i = 0; i < order.length; i += 1) {
+    total += order[i];
   }
-  console.log(array);
-  return array;
+
+  // for (const qr of order) {
+  // }
 
   // Change code above this line
+  return total;
+}
+// Задание26
+// Выполни рефакторинг кода функции calculateTotalPrice(order) заменив цикл for на for...of.
+
+// Тесты
+// Объявлена функция calculateTotalPrice(order)
+// Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138
+// Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503
+// Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116
+// Вызов функции calculateTotalPrice([]) возвращает 0
+// Вызов функции calculateTotalPrice() со случайным массивом чисел возвращает правильную сумму
+function calculateTotalPrice(order) {
+  let total = 0;
+
+  for (const qwe of order) {
+    total += qwe;
+  }
+
+  return total;
 }
 
-filterArray([1, 2, 3, 4, 5], 3);
+// Задание27
+// Выполни рефакторинг функции filterArray(numbers, value) заменив цикл for на for...of.
+
+// Тесты
+// Объявлена функция filterArray(numbers, value)
+// Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5]
+// Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5]
+// Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает []
+// Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76]
+// Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76]
+// Вызов функции filterArray() со случайным массивом и числом возвращает правильный массив
+// Функция calculateTotalPrice() использует цикл for..of
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+  for (const number of numbers) {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
+  }
+  return filteredNumbers;
+}

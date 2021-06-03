@@ -71,7 +71,7 @@
 // for (let i = 0; i < max; i += 1) {
 //   console.log(i);
 // }
-// Задание
+// Задание25
 // Дополни цикл for так, чтобы он логировал все целые числа в диапазоне от start до end включительно.
 
 // Тесты
@@ -149,12 +149,12 @@ function calculateTotalPrice(order) {
 // Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76]
 // Вызов функции filterArray() со случайным массивом и числом возвращает правильный массив
 // Функция calculateTotalPrice() использует цикл for..of
-function filterArray(numbers, value) {
-  const filteredNumbers = [];
-  for (const number of numbers) {
-    if (number > value) {
-      filteredNumbers.push(number);
-    }
-  }
-  return filteredNumbers;
-}
+// function filterArray(numbers, value) {
+//   const filteredNumbers = [];
+//   for (const number of numbers) {
+//     if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+//   }
+//   return filteredNumbers;
+// }

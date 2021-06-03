@@ -1335,3 +1335,66 @@ return array
 }
 
 for (const qr of order) {
+
+  // Задание26
+// Выполни рефакторинг кода функции calculateTotalPrice(order) заменив цикл for на for...of.
+
+// Тесты
+// Объявлена функция calculateTotalPrice(order)
+// Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138
+// Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503
+// Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116
+// Вызов функции calculateTotalPrice([]) возвращает 0
+// Вызов функции calculateTotalPrice() со случайным массивом чисел возвращает правильную сумму
+function calculateTotalPrice(order) {
+  let total = 0;
+
+  for (const qwe of order) {
+    total += qwe;
+  }
+
+  return total;
+}
+
+// Задание27
+// Выполни рефакторинг функции filterArray(numbers, value) заменив цикл for на for...of.
+
+// Тесты
+// Объявлена функция filterArray(numbers, value)
+// Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5]
+// Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5]
+// Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает []
+// Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76]
+// Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76]
+// Вызов функции filterArray() со случайным массивом и числом возвращает правильный массив
+// Функция calculateTotalPrice() использует цикл for..of
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+  for (const number of numbers) {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
+  }
+  return filteredNumbers;
+  }
+  
+  Задание 28
+Дополни выражения остатка от деления так, чтобы код проходил тесты.
+
+Тесты
+Объявлена переменная a
+Значение переменной a это число 0
+Объявлена переменная b
+Значение переменной b это число 1
+Объявлена переменная c
+Значение переменной c это число 3
+Объявлена переменная d
+Значение переменной d это число 5
+Объявлена переменная e
+  Значение переменной e это число 2
+  
+  const a = 3 % 3;
+const b = 4 % 3;
+const c = 11 % 4;
+const d = 12 % 7;
+const e = 8 % 6;

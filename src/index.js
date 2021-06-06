@@ -1449,7 +1449,7 @@ for (let i = start; i < end; i += 1) {
     break;
   }
 }
-// Задание30
+// Задание31
 // Выполни рефакторинг функции findNumber(start, end, divisor) так, чтобы она:
 
 // возвращала первое число от start до end, которое делится на divisor без остатка
@@ -1473,4 +1473,376 @@ function findNumber(start, end, divisor) {
     }
   }
 
+  }
+  
+//   Задание32
+//   Напиши функцию includes(array, value), которая делает тоже самое,
+//     что и метод массива массив.includes(значение) - проверяет,
+//       есть ли в массиве array значение value, возвращая true если есть и false в противном случае.
+//   При выполнении этой задачи в теле функции includes()
+//   нельзя использовать метод массив.includes(значение).
+// Тесты
+// Объявлена функция includes(array, value)
+// Вызов includes([1, 2, 3, 4, 5], 3) возвращает true
+// Вызов includes([1, 2, 3, 4, 5], 17) возвращает false
+// Вызов includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Jupiter") возвращает true
+// Вызов includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Uranus") возвращает false
+// Вызов includes(["apple", "plum", "pear", "orange"], "plum") возвращает true
+// Вызов includes(["apple", "plum", "pear", "orange"], "kiwi") возвращает false
+// Вызов includes() для случайного массива со случайным value возвращает верный boolean
+// В функции includes используется for, return, но не метод массива includes
+  
+  function includes(array, value) {
+for (let el of array) {
+    if (el === value) {
+      return true
+    }
+  }
+  return false
+  }
+  
+
+//   МОДУЛЬ 3
+//   Задание1
+//   Присвой переменной apartment объект описывающий квартиру
+//   со следующими характеристиками:
+// imgUrl - фотография, значение "https://via.placeholder.com/640x480";
+// descr - описание, значение "Spacious apartment in the city center";
+// rating - рейтинг, значение 4;
+// price - цена, значение 2153;
+// tags - метаинформация, массив ["premium", "promoted", "top"].
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// В объекте есть свойство imgUrl
+// Значение свойства imgUrl это строка "https://via.placeholder.com/640x480"
+// В объекте есть свойство descr
+// Значение свойства descr это строка "Spacious apartment in the city center"
+// В объекте есть свойство rating
+// Значение свойства rating это число 4
+// В объекте есть свойство price
+// Значение свойства price это число 2153
+// В объекте есть свойство tags
+// Значение свойства tags это массив ["premium", "promoted", "top"]
+  
+  const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr:  "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,  
+  tags :["premium", "promoted", "top"],
+  };
+
+//   Задание2
+//   Дополни объект квартиры свойством owner, значением которого
+//   будет объект с информацией о владельце.Добавь ему следующие свойства:
+
+// name - имя владельца, значение "Henry";
+// phone - телефон, значение "982-126-1588";
+// email - почта, значение "henry.carter@aptmail.com".
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// У объекта переменной apartment присутствуют свойства imgUrl, descr, rating, price и tag со значениями
+// В объекте apartment есть свойство owner
+// Значение свойства owner это объект
+// В объекте owner есть свойство name
+// Значение свойства name это "Henry"
+// В объекте owner есть свойство phone
+// Значение свойства phone это "982-126-1588"
+// В объекте owner есть свойствао email
+// Значение свойства email это "henry.carter@aptmail.com"
+  
+  const apartment = {
+    imgUrl: 'https://via.placeholder.com/640x480',
+    descr: 'Spacious apartment in the city center',
+    rating: 4,
+    price: 2153,
+    tags: ['premium', 'promoted', 'top'],
+    owner: {
+    name: "Henry",
+    phone: "982-126-1588", 
+    email: "henry.carter@aptmail.com",
+    } 
+  };
+
+//   Задание3
+//   Дополни код присвоив объявленным переменным выражения
+//   обращения к соответствующим свойствам обьекта apartment.
+
+// aptRating - рейтинг;
+// aptDescr - описание;
+// aptPrice - цена;
+// aptTags - теги.
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// У объекта переменной apartment присутствуют свойства imgUrl, descr, rating, price и tag со значениями
+// Объявлена переменная aptRating
+// Значение переменной aptRating это число 4
+// Объявлена переменная aptDescr
+// Значение переменной aptDescr это строка "Spacious apartment in the city center"
+// Объявлена переменная aptPrice
+// Значение переменной aptPrice это число 2153
+// Объявлена переменная aptTags
+// Значение переменной aptTags это массив строк ["premium", "promoted", "top"]
+
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+};
+
+const aptRating = apartment.rating;
+const aptDescr = apartment.descr;
+const aptPrice = apartment.price;
+  const aptTags = apartment.tags;
+  
+//   Задание4
+  // Дополни код присвоив объявленным переменным выражения 
+  //обращения к соответствующим свойствам обьекта apartment.
+
+// ownerName - имя владельца;
+// ownerPhone - телефон владельца;
+// ownerEmail - почта владельца;
+// numberOfTags - количество элементов массива в свойстве tags;
+// firstTag - первый элемент массива в свойстве tags;
+// lastTag - последний элемент массива в свойстве tags.
+// Тесты
+// Объявлена переменная apartment с помощью "const"
+// Значение переменной apartment это объект
+// Объявлена переменная ownerName с помощью "const"
+// Значение переменной ownerName это строка "Henry"
+// Объявлена переменная ownerPhone с помощью "const"
+// Значение переменной ownerPhone это "982-126-1588"
+// Объявлена переменная ownerEmail с помощью "const"
+// Значение переменной ownerEmail это "henry.carter@aptmail.com"
+// Объявлена переменная numberOfTags с помощью "const"
+// Значение переменной numberOfTags это 3
+// Объявлена переменная firstTag с помощью "const"
+// Значение переменной firstTag это "premium"
+// Объявлена переменная lastTag с помощью "const"
+// Значение переменной lastTag это "top"
+  
+  const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+  owner: {
+    name: "Henry",
+    phone: "982-126-1588",
+    email: "henry.carter@aptmail.com",
+  },
+};
+const ownerName = apartment.owner.name;
+const ownerPhone = apartment.owner.phone;
+const ownerEmail = apartment.owner.email;
+const numberOfTags = apartment.tags.length;
+const firstTag = apartment.tags[0];
+  const lastTag = apartment.tags[2];
+  
+//   Задание5
+//   Дополни код присвоив объявленным переменным
+//   выражения обращения к соответствующим свойствам
+//   обьекта apartment используя синтаксис «квадратных скобок».
+
+// aptRating - рейтинг;
+// aptDescr - описание;
+// aptPrice - цена;
+// aptTags - теги.
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Объявлена переменная aptRating
+// Значение переменной aptRating это 4
+// Объявлена переменная aptDescr
+// Значение переменной aptDescr это "Spacious apartment in the city center"
+// Объявлена переменная aptPrice
+// Значение переменной aptPrice это 2153
+// Объявлена переменная aptTags
+// Значение переменной aptTags это ["premium", "promoted", "top"]
+
+  const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+};
+const aptRating = apartment["rating"];
+const aptDescr = apartment["descr"];
+const aptPrice = apartment["price"];
+  const aptTags = apartment["tags"];
+  
+//   Задание6
+// Дополни код обновив значения свойств объекта apartment:
+
+// цену в свойстве price на 5000;
+// рейтинг квартиры в свойстве rating на 4.7;
+// имя владельца во вложенном свойстве name на "Henry Sibola";
+// массив тегов в свойстве tags добавив в конец строку "trusted".
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Значение вложенного свойства price это число 5000
+// Значение вложенного свойства rating это число 4.7
+// Значение вложенного свойства name это строка "Henry Sibola"
+// Значение вложенного свойства tags это массив ["premium", "promoted", "top", "trusted"]
+
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+  tags: ["premium", "promoted", "top"],
+  owner: {
+    name: "Henry",
+    phone: "982-126-1588",
+    email: "henry.carter@aptmail.com",
+  },
+};
+
+apartment.price = 5000; 
+apartment.rating = 4.7;
+apartment.owner.name = "Henry Sibola";
+apartment.tags.push("trusted");
+
+//   Задание 7
+// Добавь объекту apartment несколько новых свойств:
+
+// area - площадь в квадратных метрах, число 60;
+// rooms - количество комнат, число 3;
+// location - местоположение квартиры, обьект со следующими вложенными свойствами;
+// country - страна, строка "Jamaica";
+// city - город, строка "Kingston".
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Значение вложенного свойства area это число 60
+// Значение вложенного свойства rooms это число 3
+// Значение вложенного свойства location это объект
+// Значение вложенного свойства location.country это строка "Jamaica"
+// Значение вложенного свойства location.city это строка "Kingston"
+
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480",
+  descr: "Spacious apartment in the city center",
+  rating: 4.7,
+  price: 5000,
+  tags: ["premium", "promoted", "top", "trusted"],
+  owner: {
+    name: "Henry Sibola",
+    phone: "982-126-1588",
+    email: "henry.carter@aptmail.com",
+  },
+};
+
+apartment.area = 60;
+apartment.rooms = 3;
+apartment.location = {
+  
+  country :"Jamaica",
+  city: "Kingston"
 }
+
+// Задание 8
+//   Дополни код объявления объекта так, чтобы у него были свойства name,
+//     price, image и tags со значениями из переменных с аналогичными
+//   именами.Обязательно используй синтаксис коротких свойств.
+
+// Тесты
+// Объявлена переменная product
+// Значение переменной product это объект
+// Значение вложенного свойства name это строка "Repair Droid"
+// Значение вложенного свойства price это число 2500
+// Значение вложенного свойства image это строка "https://via.placeholder.com/640x480"
+// Значение вложенного свойства tags это массив ["on sale","trending", "best buy"]
+const name = 'Repair Droid';
+const price = 2500;
+const image = 'https://via.placeholder.com/640x480';
+const tags = ['on sale', 'trending', 'best buy'];
+
+const product = {
+   name,
+  price,
+  image,
+  tags
+  };
+
+//   Задание9
+  // Дополни код объявления объекта credentials так, чтобы в результате
+  //  у него были два свойства: email и password, имена которых хранятся 
+  //в переменных emailInputName и passwordInputName.
+
+// Значением свойства email должна быть строка "henry.carter@aptmail.com", а значением свойства password - строка "jqueryismyjam".
+
+// Тесты
+// Объявлена переменная credentials
+// Значение переменной credentials это объект
+// В объекте credentials есть свойство email
+// Значение вложенного свойства email это строка "henry.carter@aptmail.com"
+// В объекте credentials есть свойство password
+// Значение вложенного свойства password это строка "jqueryismyjam"
+const emailInputName = 'email';
+const passwordInputName = 'password';
+
+const credentials = {
+  
+  
+  [emailInputName]:"henry.carter@aptmail.com",
+    [passwordInputName]: "jqueryismyjam"
+  
+//     Задание10
+// Перебери объект apartment используя цикл for...in и запиши в массив keys все его ключи, а в массив values все значения его свойств.
+
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Объявлена переменная keys
+// Значение переменной keys это массив ['descr', 'rating', 'price']
+// Объявлена переменная values
+// Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153]
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const keys = [];
+const values = [];
+for (const key in apartment){
+   keys.push(key);
+   values.push(apartment[key]); 
+}
+
+// Задание10
+// Выполни рефакторинг решения предыдущего задания добавив
+// в цикл for...in проверку на собственное свойство.
+// Тесты
+// Объявлена переменная advert.
+// Значение переменной advert это объект.
+// Объявлена переменная apartment.
+// Значение переменной apartment это объект.
+// Объявлена переменная keys.
+// Значение переменной keys это массив ['descr', 'rating', 'price'].
+// Объявлена переменная values.
+// Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153].
+
+const keys = [];
+const values = [];
+const advert = {
+  service: "apt",
+};
+const apartment = Object.create(advert);
+apartment.descr = "Spacious apartment in the city center";
+apartment.rating = 4;
+apartment.price = 2153;
+for (const key in apartment) {
+  if (apartment.hasOwnProperty(key)) {
+  keys.push(key);
+  values.push(apartment[key]);
+  
+  }

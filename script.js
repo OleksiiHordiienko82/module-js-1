@@ -103,20 +103,20 @@
 
 // filterArray([1, 2, 3, 4, 5], 3);
 
-function calculateTotalPrice(order) {
-  let total = 0;
-  // Change code below this line
+// function calculateTotalPrice(order) {
+//   let total = 0;
+//   // Change code below this line
 
-  for (let i = 0; i < order.length; i += 1) {
-    total += order[i];
-  }
+//   for (let i = 0; i < order.length; i += 1) {
+//     total += order[i];
+//   }
 
-  // for (const qr of order) {
-  // }
+// for (const qr of order) {
+// }
 
-  // Change code above this line
-  return total;
-}
+// Change code above this line
+//   return total;
+// }
 // Задание26
 // Выполни рефакторинг кода функции calculateTotalPrice(order) заменив цикл for на for...of.
 
@@ -127,15 +127,15 @@ function calculateTotalPrice(order) {
 // Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116
 // Вызов функции calculateTotalPrice([]) возвращает 0
 // Вызов функции calculateTotalPrice() со случайным массивом чисел возвращает правильную сумму
-function calculateTotalPrice(order) {
-  let total = 0;
+// function calculateTotalPrice(order) {
+//   let total = 0;
 
-  for (const qwe of order) {
-    total += qwe;
-  }
+//   for (const qwe of order) {
+//     total += qwe;
+//   }
 
-  return total;
-}
+//   return total;
+// }
 
 // Задание27
 // Выполни рефакторинг функции filterArray(numbers, value) заменив цикл for на for...of.
@@ -158,3 +158,28 @@ function calculateTotalPrice(order) {
 //   }
 //   return filteredNumbers;
 // }
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+// Change code below this line
+
+const keys = Object.keys(apartment);
+for (const key of keys) {
+  values.push(apartment[key]);
+}
+console.log(values);
+Задание13
+Перебери объект apartment используя метод Object.keys() и цикл for...of. Запиши в переменную keys массив ключей собственных свойств объекта apartment, и добавь в массив values все значения его свойств.
+
+Тесты
+Объявлена переменная apartment.
+Значение переменной apartment это объект.
+Объявлена переменная keys.
+Значение переменной keys это массив ['descr', 'rating', 'price'].
+Значение переменной keys получено с помощью метода Object.keys().
+Объявлена переменная values.
+Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153].
+Значение переменной values получено с помощью цикла for...of.

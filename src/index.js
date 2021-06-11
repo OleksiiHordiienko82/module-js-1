@@ -2182,4 +2182,70 @@ const {yesterday: highYesterday, today: highToday, tomorrow: highTomorrow, icon:
 
 // Change code above this line
 const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+// Задание24
+// Выполни рефакторинг цикла for...of так, чтобы в нём использовалась деструктуризация объекта..
+
+// Тесты
+// Объявлена переменная colors
+// Значение переменной colors это массив
+// Объявлена переменная hexColors
+// Значение переменной hexColors это массив ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+// Объявлена переменная rgbColors
+// Значение переменной rgbColors это массив ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+// Для перебора массива используется цикл for...of
+// В цикле for...of используется деструктуризация объекта
+  const colors = [
+  { hex: '#f44336', rgb: '244,67,54' },
+  { hex: '#2196f3', rgb: '33,150,243' },
+  { hex: '#4caf50', rgb: '76,175,80' },
+  { hex: '#ffeb3b', rgb: '255,235,59' },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+
+for (const { hex, rgb}  of colors) {
+  hexColors.push(hex);
+  rgbColors.push(rgb);
+}
+// Задание25
+// Мы получили прогноз погоды на два дня, с минимальными и максимальными температурами, а также необязательными иконками. Замени объявления всех переменных одной операцией деструктуризации свойств объекта forecast. Задай значение по умолчанию для иконок, переменных todayIcon и tomorrowIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+// Тесты
+// Объявлена переменная forecast
+// Значение переменной forecast это объект
+// Объявлена переменная highToday с помощью деструктуризации
+// Значение переменной highToday это число 32
+// Объявлена переменная lowToday с помощью деструктуризации
+// Значение переменной lowToday это число 28
+// Объявлена переменная todayIcon с помощью деструктуризации
+// Значение переменной todayIcon это строка "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg"
+// Объявлена переменная highTomorrow с помощью деструктуризации
+// Значение переменной highTomorrow это число 31
+// Объявлена переменная lowTomorrow с помощью деструктуризации
+// Значение переменной lowTomorrow это число 27
+// Объявлена переменная tomorrowIcon с помощью деструктуризации
+// Значение переменной tomorrowIcon это строка "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+// Используется синтаксис деструктуризации объекта highTemperatures
+  const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+// Change code below this line
+
+ const {
+ 
+ today: {high:highToday, low:lowToday, icon:todayIcon = "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg" },
+   
+  tomorrow: {low:lowTomorrow, high:highTomorrow, icon:tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg" }
+ 
+ } = forecast
 

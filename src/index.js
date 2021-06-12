@@ -2247,5 +2247,236 @@ for (const { hex, rgb}  of colors) {
    
   tomorrow: {low:lowTomorrow, high:highTomorrow, icon:tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg" }
  
- } = forecast
+  } = forecast
+  
+  
+//   Задание26
+//   Функция calculateMeanTemperature(forecast) принимает
+//   один параметр forecast - объект температур на два дня следующего формата.
 
+// {
+//   today: { low: 10, high: 20 },
+//   tomorrow: { low: 20, high: 30 }
+// }
+//   Замени объявления переменных todayLow, todayHigh, tomorrowLow и tomorrowHigh
+//   одной операцией деструктуризации свойств объекта forecast.
+
+// Тесты
+// Объявлена функция calculateMeanTemperature(forecast)
+// В теле функции используется деструктуризация объекта
+// В теле функции объявлена переменная todayHigh с помощью деструктуризации
+// В теле функции объявлена переменная todayLow с помощью деструктуризации
+// В теле функции объявлена переменная tomorrowLow с помощью деструктуризации
+// В теле функции объявлена переменная tomorrowHigh с помощью деструктуризации
+// Вызов calculateMeanTemperature({ today: {low: 28, high: 32}, tomorrow: {low: 25, high: 29} }) возвращает 28.5
+// Вызов calculateMeanTemperature({ today: {low: 37, high: 40}, tomorrow: {low: 33, high: 38} }) возвращает 37
+
+function calculateMeanTemperature(forecast) {
+  
+  const {
+  
+  today: { low:todayLow, high:todayHigh },
+  tomorrow: { low : tomorrowLow, high:tomorrowHigh}
+  
+  } = forecast
+  
+  // Change code above this line
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+  }
+  
+//   Задание27
+//   В переменной scores хранится массив результатов тестирования.
+//   Используя распыление и методы Math.max() и Math.min() дополни код так,
+//     чтобы в переменной bestScore был самый высокий балл, а в worstScore самый низкий.
+
+// Тесты
+// Объявлена переменная scores
+// Значение переменной scores это массив [89, 64, 42, 17, 93, 51, 26]
+// Объявлена переменная bestScore
+// Значение переменной bestScore это число 93
+// Объявлена переменная worstScore
+// Значение переменной worstScore это число 17
+// Для передачи аргументов методу Math.max() используется синтаксис ... на массиве scores
+// Для передачи аргументов методу Math.min() используется синтаксис ... на массиве scores
+  
+const scores = [89, 64, 42, 17, 93, 51, 26];
+// Change code below this line
+const bestScore = Math.max(...scores);
+const worstScore = Math.min(...scores);
+
+  
+//   Задание28
+//   В переменных firstGroupScores, secondGroupScores и
+//   thirdGroupScores хранятся результаты тестирования отдельных групп.
+//   Используя распыление дополни код так, чтобы:
+
+// В переменной allScores хранился массив всех результатов от первой до третьей группы.
+// В переменной bestScore был самый высокий общий балл.
+// В переменной worstScore был самый низкий общий балл.
+// Тесты
+// Объявлена переменная firstGroupScores
+// Значение переменной firstGroupScores это массив [64, 42, 93]
+// Объявлена переменная secondGroupScores
+// Значение переменной secondGroupScores это массив [89, 14, 51, 26]
+// Объявлена переменная thirdGroupScores
+// Значение переменной thirdGroupScores это массив [29, 47, 18, 97, 81]
+// Объявлена переменная allScores.
+// Значение переменной allScores это массив [64, 42, 93, 89, 14, 51, 26, 29, 47, 18, 97, 81]
+// Объявлена переменная bestScore
+// Значение переменной bestScore это число 97
+// Объявлена переменная worstScore
+// Значение переменной worstScore это число 14
+// При присвоении значения переменной allScores использовался синтаксис ... для заполнения массива
+// Для передачи аргументов методу Math.max() используется синтаксис ... на массиве allScores
+// Для передачи аргументов методу Math.min() используется синтаксис ... на массиве allScores
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+// Change code below this line
+const allScores = [...firstGroupScores,...secondGroupScores,...thirdGroupScores];
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+
+//   Задание29
+//   В конструкторе можно создавать новые тесты,
+//     для которых есть настройки по умолчанию которые
+//   хранятся в переменной defaultSettings.Во время создания теста,
+//     все или часть настроек можно переопределить, они хранятся в переменной overrideSettings.
+
+//   Для того чтобы получить финальные настройки теста,
+//     необходимо взять настройки по умолчанию и поверх них применить
+//   переопределённые настройки.Дополни код так, чтобы в переменной finalSettings
+//   получился объект финальных настроек теста.
+
+// Тесты
+// Объявлена переменная defaultSettings
+// Значение переменной defaultSettings это объект
+// Объявлена переменная overrideSettings
+// Значение переменной overrideSettings это объект
+// Объявлена переменная finalSettings
+// Значение переменной finalSettings это объект
+// Значение свойства finalSettings.theme равно "light"
+// Значение свойства finalSettings.public равно "false"
+// Значение свойства finalSettings.withPassword равно "true"
+// Значение свойства finalSettings.minNumberOfQuestions равно 10
+
+const defaultSettings = {
+  theme: 'light',
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 60,
+};
+const overrideSettings = {
+  public: false,
+  withPassword: true,
+  timePerQuestion: 30,
+};
+// Change code below this line
+const finalSettings = {...defaultSettings, ...overrideSettings};
+
+//   Задание30
+// Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами.
+
+// text - текст задачи.
+// category - категория задачи.
+// priority - приоритет задачи.
+// Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data. В новом объекте должно быть свойство completed, значение которого хранится в одноимённой локальной переменной.
+
+// В параметре data гарантированно будет только свойство text, а остальные два, category и priority, могут отсутствовать. Тогда, в новом объекте задачи, в свойствах category и priority должны быть значения по умолчанию, хранящиеся в одноимённых локальных переменных.
+
+// Тесты
+// Объявлена функция makeTask(data)
+// Вызов makeTask({}) возвращает { category: "General", priority: "Normal", completed: false }
+// Вызов makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" }) возвращает { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+// Вызов makeTask({ category: "Finance", text: "Take interest" }) возвращает { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+// Вызов makeTask({ priority: "Low", text: "Choose shampoo" }) возвращает { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+// Вызов makeTask({ text: "Buy bread" }) возвращает { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+function makeTask(data) {
+  const completed = false;
+  const category = 'General';
+  const priority = 'Normal';
+  // Change code below this line
+
+  return { category, priority, completed,...data }
+  // Change code above this line
+}
+
+  
+//   function add(...args) {
+  // Change code above this line
+  let totalElements = 0;
+  
+  for(const el of args) {
+          
+         totalElements += el;
+         
+   }
+  
+  return totalElements
+}
+
+// Задание32
+// Функция addOverNum() считает сумму всех аргументов.
+// Измени параметры и тело функции addOverNum() так, чтобы
+// она считала сумму только тех аргументов, которые больше
+// чем заданное число.Это число должно быть первым параметром функции.
+
+// Тесты
+// Объявлена функция addOverNum()
+// Вызов addOverNum(50, 15, 27) возвращает 0
+// Вызов addOverNum(10, 12, 4, 11, 48, 10, 8) возвращает 71
+// Вызов addOverNum(15, 32, 6, 13, 19, 8) возвращает 51
+// Вызов addOverNum(20, 74, 11, 62, 46, 12, 36) возвращает 218
+function addOverNum(first,...args) {
+  let total = 0;
+
+  for (const arg of args) {
+    
+    if (first < arg) {
+    
+    total += arg;
+    
+    }
+   
+    
+  }
+
+  return total;
+  // Change code above this line
+}
+
+// Задание33
+// Функция findMatches() принимает произвольное количество аргументов.
+// Первым аргументом всегда будет массив чисел, а остальные аргументы будут просто числами.
+
+// Дополни код функции так, чтобы она возвращала новый массив matches,
+//   в котором будут только те аргументы, начиная со второго, которые есть в массиве первого аргумента.
+
+//   Например, findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) должна вернуть массив[1, 2],
+//     потому что только они есть в массиве первого аргумента.
+
+// Тесты
+// Объявлена функция findMatches()
+// Вызов findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) возвращает [1, 2]
+// Вызов findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2) возвращает [17, 89, 2]
+// Вызов findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41) возвращает [24, 9, 41]
+// Вызов findMatches([63, 11, 8, 29], 4, 7, 16) возвращает []
+
+function findMatches(array, ...args) {
+  const matches = []; // Don't change this line
+
+  for(const el of args ) {
+  
+  if(array.includes(el)) {
+  
+  matches.push(el);  
+  
+  }
+  
+  }
+  
+      
+  // Change code above this line
+  return matches;
+}

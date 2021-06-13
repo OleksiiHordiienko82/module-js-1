@@ -197,16 +197,49 @@
 // }
 
 // add(1, 2, 3, 4, 5);
-const bookShelf = {
-  books: ["The last kingdom", "Haze", "The guardian of dreams"],
-  updateBook(oldName, newName) {
-    // Change code below this line
+// const bookShelf = {
+//   books: ["The last kingdom", "Haze", "The guardian of dreams"],
+//   updateBook(oldName, newName) {
+//     // Change code below this line
 
-    const book = this.books.indexOf(oldName);
+//     const book = this.books.indexOf(oldName);
 
-    this.books.splice(book, newName);
+//     this.books.splice(book, newName);
 
-    // Change code above this line
-    console.log(bookShelf.updateBook);
+//     // Change code above this line
+//     console.log(bookShelf.updateBook);
+//   },
+// };
+const atTheOldToad = {
+  // Change code below this line
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+
+  getPotions() {
+    const qw = this.getPotions(potions);
+    console.log(qw);
   },
+
+  // Change code above this line
+};
+
+// Задача.37
+// Получаем все зелья
+// Задание
+// Добавь объекту atTheOldToad метод getPotions(), который просто возвращает значение свойства potions.
+
+// Тесты
+// Объявлена переменная atTheOldToad
+// Значение переменной atTheOldToad это объект
+// Значение свойства atTheOldToad.potions это массив ['Speed potion', 'Dragon breath', 'Stone skin']
+// Значение свойства atTheOldToad.getPotions это метод объекта
+// Вызов метода atTheOldToad.getPotions() возвращает ['Speed potion', 'Dragon breath', 'Stone skin']
+const atTheOldToad = {
+  // Change code below this line
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+
+  getPotions() {
+    return this.potions;
+  },
+
+  // Change code above this line
 };

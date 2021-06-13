@@ -2480,3 +2480,81 @@ function findMatches(array, ...args) {
   // Change code above this line
   return matches;
 }
+// Задание34
+// Добавь объекту bookShelf ещё два метода, которые пока что будут возвращать просто строки по аналогии с getBooks() и addBook(bookName).
+
+// Метод removeBook(bookName) будет удалять книгу по имени. Возвращает строку "Deleting book <имя книги>", где <имя книги> это значение параметра bookName.
+
+// Метод updateBook(oldName, newName) будет обновлять название книги на новое. Возвращает строку "Updating book <старое имя> to <новое имя>", где <старое имя> и <новое имя>это значения параметров oldName и newName соотвественно.
+
+// Тесты
+// Объявлена переменная bookShelf
+
+// Значение переменной bookShelf это объект
+
+// Значение свойства bookShelf.getBooks это метод объекта
+
+// Вызов метода bookShelf.getBooks() возвращает строку "Возвращаем все книги"
+
+// Значение свойства bookShelf.addBook это метод объекта
+
+// Вызов метода bookShelf.addBook("Haze") возвращает строку "Adding book Haze"
+
+// Значение свойства bookShelf.removeBook это метод объекта
+
+// Вызов метода bookShelf.removeBook("Red sunset") возвращает строку "Deleting book Red sunset"
+
+// Значение свойства bookShelf.updateBook это метод объекта
+
+// Вызов метода bookShelf.updateBook("Sands of dune", "Dune") возвращает строку "Updating book Sands of dune to Dune"
+const bookShelf = {
+  // Change code below this line
+  books: ['The last kingdom', 'The guardian of dreams'],
+  getBooks() {
+    return 'Returning all books';
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  
+  
+  removeBook(bookName){
+  
+   return `Deleting book ${bookName}`
+  
+  },
+  
+  updateBook(oldName, newName){
+  
+  return `Updating book ${oldName} to ${newName}`
+  }
+  
+  // Change code above this line
+};
+
+// Задание35
+// Дополни метод updateBook(oldName, newName) так, чтобы он изменял название книги с oldName на newName в свойстве books. Используй indexOf() для того, чтобы найти нужный элемент массива, и splice() для того чтобы заменить этот элемент
+
+// Тесты
+// Объявлена переменная bookShelf
+
+// Значение переменной bookShelf это объект
+
+// Значение свойства bookShelf.updateBook это метод объекта
+
+// После вызова метода bookShelf.updateBook("Haze", "Dungeon chronicles"), значение свойства books это массив ["The last kingdom", "Dungeon chronicles", "The guardian of dreams"]
+
+// После вызова метода bookShelf.updateBook("The last kingdom", "Dune"), значение свойства books это массив ["Dune", "Haze", "The guardian of dreams"]
+const bookShelf = {
+  books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+  updateBook(oldName, newName) {
+    // Change code below this line
+	
+const bookIndex = this.books.indexOf(oldName); 
+
+this.books.splice(bookIndex, newName);
+
+	
+    // Change code above this line
+  },
+};

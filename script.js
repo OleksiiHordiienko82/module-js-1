@@ -185,15 +185,28 @@
 // Значение переменной values получено с помощью цикла for...of.
 
 //
-function add(...args) {
-  // Change code above this line
-  let totalElements = 0;
+// function add(...args) {
+//   // Change code above this line
+//   let totalElements = 0;
 
-  for (const el of args) {
-    totalElements += el;
-  }
-  console.log(totalElements);
-  return totalElements;
-}
+//   for (const el of args) {
+//     totalElements += el;
+//   }
+//   console.log(totalElements);
+//   return totalElements;
+// }
 
-add(1, 2, 3, 4, 5);
+// add(1, 2, 3, 4, 5);
+const bookShelf = {
+  books: ["The last kingdom", "Haze", "The guardian of dreams"],
+  updateBook(oldName, newName) {
+    // Change code below this line
+
+    const book = this.books.indexOf(oldName);
+
+    this.books.splice(book, newName);
+
+    // Change code above this line
+    console.log(bookShelf.updateBook);
+  },
+};

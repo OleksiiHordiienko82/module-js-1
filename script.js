@@ -210,14 +210,14 @@
 //     console.log(bookShelf.updateBook);
 //   },
 // };
-const atTheOldToad = {
-  // Change code below this line
-  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
 
-  getPotions() {
-    const qw = this.getPotions(potions);
-    console.log(qw);
-  },
+//   getPotions() {
+//     const qw = this.getPotions(potions);
+//     console.log(qw);
+//   },
 
   // Change code above this line
 };
@@ -233,13 +233,24 @@ const atTheOldToad = {
 // Значение свойства atTheOldToad.potions это массив ['Speed potion', 'Dragon breath', 'Stone skin']
 // Значение свойства atTheOldToad.getPotions это метод объекта
 // Вызов метода atTheOldToad.getPotions() возвращает ['Speed potion', 'Dragon breath', 'Stone skin']
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+
+//   // Change code above this line
+// };
 const atTheOldToad = {
-  // Change code below this line
   potions: ["Speed potion", "Dragon breath", "Stone skin"],
-
-  getPotions() {
-    return this.potions;
+  removePotion(potionName) {
+    // Change code below this line
+    this.potions.splice(potionName,1);
+     console.log("Speed potion"); 
+   
+     
+    // Change code above this line
   },
-
-  // Change code above this line
 };

@@ -3931,3 +3931,108 @@ mango.blacklist('poly@mail.com');
 console.log(mango.blacklistedEmails); // 'poly@mail.com'
 console.log(mango.isBlacklisted('mango@mail.com')); //  false
 console.log(mango.isBlacklisted('poly@mail.com')); // true 
+
+Модуль 6
+
+// Задание 1
+// Функция calculateTotalPrice(orderedItems) принимает один параметр
+// orderedItems - массив чисел, и рассчитывает общую сумму его элементов,
+//   которая сохраняется в переменной totalPrice и возвращается как результат работы функции.
+
+// Выполни рефакторинг функции так, чтобы вместо цикла for она использовала метод forEach.
+
+// Тесты
+// Объявлена функция calculateTotalPrice(orderedItems).
+// Для перебора массива orderedItems использован метод forEach.
+// Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138.
+// Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503.
+// Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+  // Пиши код ниже этой строки
+
+ orderedItems.forEach(function calculateTotalPrice(orderedItems)  {
+    totalPrice += orderedItems;
+  });
+
+  // Пиши код выше этой строки
+  return totalPrice;
+}
+
+// Задание 2
+// Функция filterArray(numbers, value) принимает массив чисел numbers и возвращает новый массив, в котором будут только те элементы оригинального массива, которые больше чем значение параметра value.
+
+// Выполни рефакторинг функции так, чтобы вместо цикла for она использовала метод forEach.
+
+// Тесты
+// Объявлена функция filterArray(numbers, value).
+// Для перебора массива numbers использован метод forEach.
+// Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает [].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+function filterArray(numbers, value) {
+    const filteredNumbers = [];
+    // Пиши код ниже этой строки
+
+    numbers.forEach(function filterArray(numbers) {
+      if (numbers > value) {
+        filteredNumbers.push(numbers);
+      }
+    })
+
+    // Пиши код выше этой строки
+    return filteredNumbers;
+}
+// Задание 3
+// Функция getCommonElements(firstArray, secondArray)
+// принимает два массива произвольной длины в параметры firstArray и secondArray,
+//   и возвращает новый массив их общих элементов, то есть тех которые есть в обоих массивах.
+
+// Выполни рефакторинг функции так, чтобы вместо цикла for
+//  она использовала метод forEach.
+
+// Тесты
+// Объявлена функция getCommonElements(firstArray, secondArray).
+// Для перебора параметра (массива) использован метод forEach.
+// Вызов getCommonElements([1, 2, 3], [2, 4]) возвращает [2].
+// Вызов getCommonElements([1, 2, 3], [2, 1, 17, 19]) возвращает [1, 2].
+// Вызов getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]) возвращает [12, 27, 3].
+// Вызов getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]) возвращает [10, 30, 40].
+// Вызов getCommonElements([1, 2, 3], [10, 20, 30]) возвращает [].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+
+function getCommonElements(firstArray, secondArray) {
+    const commonElements = [];
+    // Пиши код ниже этой строки
+
+   firstArray.forEach(function getCommonElements(firstArray) {
+      if (secondArray.includes(firstArray)) {
+        commonElements.push(firstArray);
+      }
+    });
+
+    return commonElements;
+    // Пиши код выше этой строки
+}
+  
+// Задание 4
+// Выполни рефакторинг функции calculateTotalPrice() так,
+//   чтобы она была объявлена как стрелочная.
+
+// Тесты
+// Объявлена переменная calculateTotalPrice.
+// Переменной calculateTotalPrice присвоена стрелочная функция с
+// параметрами(quantity, pricePerItem).
+// Вызов calculateTotalPrice(5, 100) возвращает 500.
+// Вызов calculateTotalPrice(8, 60) возвращает 480.
+// Вызов calculateTotalPrice(3, 400) возвращает 1200.
+// Вызов функции со случайными, но валидными аргументами,
+//   возвращает правильное значение.
+const calculateTotalPrice = (quantity, pricePerItem) => {
+  // Пиши код выше этой строки
+  return quantity * pricePerItem;
+}

@@ -3502,3 +3502,165 @@ class Car {
     this.#brand = newBrand;
   }
 }
+
+// Задание 12
+// Выполни рефакторинг заменив функцию - конструктор
+// Storage на класс с методами.Сделай так, чтобы свойство items было приватным.
+
+// Под комментарием мы добавили инициализацию
+// экземпляра и вызовы методов в той последовательности,
+//   в которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
+
+// Тесты
+// Объявлен класс Storage.
+// Свойство items в классе Storage объявлено приватным.
+// Конструктор класса принимает свойство items.
+// Вызов Storage.prototype.hasOwnProperty('getItems') возвращает true.
+// Вызов Storage.prototype.hasOwnProperty('addItem') возвращает true.
+// Вызов Storage.prototype.hasOwnProperty('removeItem') возвращает true.
+// В результате вызова new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор'])
+// значение переменной storage это объект.
+// Вызов Storage.prototype.isPrototypeOf(storage) возвращает true.
+// У объекта storage нет свойства items.
+// Первый вызов storage.getItems(), сразу после инциализации экземпляра,
+//   возвращает массив["Нанитоиды", "Пролонгер", "Антигравитатор"].
+// Второй вызов, storage.getItems(), после вызова storage.addItem('Дроид'),
+//   возвращает массив["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"].
+// Третий вызов storage.getItems(), после вызова storage.removeItem('Пролонгер'),
+//   возвращает массив["Нанитоиды", "Антигравитатор", "Дроид"].
+class Storage {
+  #items;
+  constructor(items) {
+    this.#items = items;
+  }
+
+  getItems() {
+    return this.#items;
+  }
+
+  addItem(newItem) {
+    this.#items.push(newItem);
+  }
+
+  removeItem(item) {
+    const itemIndex = this.#items.indexOf(item);
+    this.#items.splice(itemIndex, 1);
+  }
+}
+// Пиши код выше этой строки
+const storage = new Storage(["Нанитоиды", "Пролонгер", "Антигравитатор"]);
+console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
+storage.addItem("Дроид");
+console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
+storage.removeItem("Пролонгер");
+console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
+
+// Задание 13
+// Выполни рефакторинг заменив функцию - конструктор
+// StringBuilder на класс с методами.Сделай так, чтобы свойство value было приватным.
+
+// Под комментарием мы добавили инициализацию экземпляра
+// и вызовы методов в той последовательности, в которой твой код
+// будут проверять тесты.Пожалуйста ничего там не меняй.
+
+// Тесты
+// Объявлен класс StringBuilder.
+// Свойство value в классе StringBuilder объявлено приватным.
+// Вызов StringBuilder.prototype.hasOwnProperty('getValue') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padEnd') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padStart') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padBoth') возвращает true.
+// В результате вызова new StringBuilder('.') значение переменной builder это объект.
+// Вызов StringBuilder.prototype.isPrototypeOf(builder) возвращает true.
+// У объекта builder нет свойства value.
+// Первый вызов builder.getValue(), сразу после инциализации экземпляра, возвращает строку '.'.
+// Второй вызов builder.getValue(), после вызова builder.padStart('^'), возвращает строку '^.'.
+// Третий вызов builder.getValue(), после вызова builder.padEnd('^'), возвращает строку '^.^'.
+// Четвёртый вызов builder.getValue(), после вызова builder.padBoth('='), возвращает строку '=^.^='.
+class StringBuilder {
+  #value;
+  constructor(baseValue) {
+    this.#value = baseValue;
+  }
+
+  getValue() {
+    return this.#value;
+  }
+
+  padEnd(str) {
+    this.#value += str;
+  }
+
+  padStart(str) {
+    this.#value = str + this.#value;
+  }
+
+  padBoth(str) {
+    this.padStart(str);
+    this.padEnd(str);
+  }
+}
+// Пиши код выше этой строки
+const builder = new StringBuilder(".");
+console.log(builder.getValue()); // '.'
+builder.padStart("^");
+console.log(builder.getValue()); // '^.'
+builder.padEnd("^");
+console.log(builder.getValue()); // '^.^'
+builder.padBoth("=");
+console.log(builder.getValue()); // '=^.^='
+
+// Задание 14
+// Выполни рефакторинг класса Car.Сделай свойства
+// model и price приватными, также как #brand.Стандартизируй
+// публичный интерфейс класса заменив уже объявленные методы на геттеры и
+// сеттеры brand, model и price для взаимодействия с приватными свойствами.
+
+// Тесты
+// Объявлен класс Car.
+// В классе Car объявлено приватное свойство brand.
+// В классе Car объявлено приватное свойство model.
+// В классе Car объявлено приватное свойство price.
+// Конструктор класса принимает объект со свойствами brand, model и price.
+// В классе Car объявлен геттер brand.
+// В классе Car объявлен сеттер brand.
+// В классе Car объявлен геттер model.
+// В классе Car объявлен сеттер model.
+// В классе Car объявлен геттер price.
+// В классе Car объявлен сеттер price.
+
+class Car {
+  #model;
+  #price;
+  #brand;
+
+  constructor({ brand, model, price }) {
+    this.#brand = brand;
+    this.#model = model;
+    this.#price = price;
+  }
+
+  get brand() {
+    return this.#brand;
+  }
+
+  set brand(newBrand) {
+    this.#brand = newBrand;
+  }
+
+  get model() {
+    return this.#model;
+  }
+
+  set model(newModel) {
+    this.#model = newModel;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    this.#price = newPrice;
+  }
+}

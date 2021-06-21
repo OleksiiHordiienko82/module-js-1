@@ -4036,3 +4036,102 @@ const calculateTotalPrice = (quantity, pricePerItem) => {
   // Пиши код выше этой строки
   return quantity * pricePerItem;
 }
+// Задание 5
+// Выполни рефакторинг функции calculateTotalPrice() так, чтобы она использовала неявный возврат.
+
+// Тесты
+// Объявлена переменная calculateTotalPrice.
+// Переменной calculateTotalPrice присвоена стрелочная функция с параметрами (quantity, pricePerItem).
+// В функции использован неявный возврат.
+// Вызов calculateTotalPrice(5, 100) возвращает 500.
+// Вызов calculateTotalPrice(8, 60) возвращает 480.
+// Вызов calculateTotalPrice('3, 400) возвращает 1200.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+// Пиши код ниже этой строки
+const calculateTotalPrice = (quantity, pricePerItem) => 
+quantity * pricePerItem;
+
+// Пиши код выше этой строки
+
+// Задание 6
+// Выполни рефакторинг функции calculateTotalPrice(orderedItems)
+// заменив её объявление на стрелочную функцию.Замени коллбек -
+//   функцию передаваемую в метод forEach() на стрелочную функцию.
+
+// Тесты
+// Объявлена переменная calculateTotalPrice.
+// Переменной calculateTotalPrice присвоена стрелочная функция с параметром (orderedItems).
+// Для перебора массива orderedItems использован метод forEach.
+// Коллбек для метода forEach это стрелочная функция.
+// Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138.
+// Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503.
+// Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+// Пиши код ниже этой строки
+const calculateTotalPrice = (orderedItems) => {
+  let totalPrice = 0;
+
+  orderedItems.forEach((item) => {
+    totalPrice += item;
+  });
+
+  return totalPrice;
+}
+// Пиши код выше этой строки 
+
+// Задание 7
+// Замени объявление функции filterArray() и коллбек для метода forEach() на стрелочные функции.
+
+// Тесты
+// Объявлена переменная filterArray.
+// Переменной filterArray присвоена стрелочная функция с параметрами (numbers, value).
+// Для перебора массива numbers использован метод forEach.
+// Коллбек для метода forEach это стрелочная функция.
+// Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5].
+// Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает [].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76].
+// Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+const filterArray = (numbers, value) => {
+    const filteredNumbers = [];
+
+    numbers.forEach((number) => {
+      if (number > value) {
+        filteredNumbers.push(number);
+      }
+    });
+
+    // Пиши код выше этой строки
+    return filteredNumbers;
+}
+  
+// Задание 8
+// Замени объявление функции getCommonElements() и
+// коллбек для метода forEach() на стрелочные функции.
+
+// Тесты
+// -Объявлена переменная getCommonElements.
+
+// Переменной getCommonElements присвоена стрелочная функция с
+// параметрами(firstArray, secondArray).
+// Для перебора массива firstArray использован метод forEach.
+// Коллбек для метода forEach это стрелочная функция.
+// Вызов getCommonElements([1, 2, 3], [2, 4]) возвращает [2].
+// Вызов getCommonElements([1, 2, 3], [2, 1, 17, 19]) возвращает [1, 2].
+// Вызов getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]) возвращает [12, 27, 3].
+// Вызов getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]) возвращает [10, 30, 40].
+// Вызов getCommonElements([1, 2, 3], [10, 20, 30]) возвращает [].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+const getCommonElements = (firstArray, secondArray) => {
+    const commonElements = [];
+
+    firstArray.forEach((element) => {
+      if (secondArray.includes(element)) {
+        commonElements.push(element);
+      }
+    });
+
+    // Пиши код выше этой строки
+    return commonElements;
+  } 

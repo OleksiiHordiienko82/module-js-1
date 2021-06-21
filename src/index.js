@@ -3331,3 +3331,174 @@ function Storage(items) {
  console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
 
 
+// Задание 7
+// С помощью Function Declaration напиши функцию - конструктор
+// StringBuilder, которая принимает один параметр baseValue - произвольную
+// строку, которая записывается на создаваемый объект в свойство value.
+
+// Добавь методы на прототип:
+
+// getValue() - возвращает текущее значение свойства value.
+//   padEnd(str) - получает парметр str(строку) и добавляет
+// её в конец значения свойства value объекта, который вызывает этот метод.
+//   padStart(str) - получает парметр str(строку) и добавляет
+// её в начало значения свойства value объекта, который вызывает этот метод.
+//   padBoth(str) - получает парметр str(строку) и добавляет
+// её в начало и в конец значения свойства value объекта, который вызывает этот метод.
+// Под комментарием мы добавили инициализацию экземпляра и
+// вызовы методов в той последовательности, в которой твой код
+// будут проверять тесты.Пожалуйста ничего там не меняй.
+// Тесты
+// Объявлена функция StringBuilder(baseValue).
+// Вызов StringBuilder.prototype.hasOwnProperty('getValue') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padEnd') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padStart') возвращает true.
+// Вызов StringBuilder.prototype.hasOwnProperty('padBoth') возвращает true.
+// В результате вызова new StringBuilder('.') значение переменной builder это объект.
+// Вызов StringBuilder.prototype.isPrototypeOf(builder) возвращает true.
+// У объекта builder есть свойство value.
+// Первый вызов builder.getValue(), сразу после инциализации экземпляра, возвращает строку '.'.
+// Второй вызов builder.getValue(), после вызова builder.padStart('^'), возвращает строку '^.'.
+// Третий вызов builder.getValue(), после вызова builder.padEnd('^'), возвращает строку '^.^'.
+// Четвёртый вызов builder.getValue(), после вызова builder.padBoth('='), возвращает строку '=^.^='.
+ function StringBuilder(baseValue) {
+     this.value = baseValue;
+ };
+
+ StringBuilder.prototype.getValue = function () {
+     return this.value;
+ };
+
+ StringBuilder.prototype.padEnd = function (str) {
+     this.value = this.value + str;
+ };
+
+ StringBuilder.prototype.padStart = function (str) {
+     this.value = str + this.value;
+ };
+
+ StringBuilder.prototype.padBoth = function (str) {
+     this.value = str + this.value + str;
+ };
+
+ // Пиши код выше этой строки
+ const builder = new StringBuilder('.');
+ console.log(builder.getValue()); // '.'
+ builder.padStart('^');
+ console.log(builder.getValue()); // '^.'
+ builder.padEnd('^');
+ console.log(builder.getValue()); // '^.^'
+ builder.padBoth('=');
+console.log(builder.getValue()); // '=^.^='
+ 
+// Задание 8
+// Используя ключевое слово class объяви класс Car с пустым телом.
+
+// Тесты
+// Объявлен класс Car с пустым телом.
+// Результат вызова new Car() это пустой объект.
+
+class Car{
+
+}
+// Задание 9
+// Выполни рефакторинг кода, заменив функцию - конструктор Car на класс
+// с методом - конструктором, принимающим объект.
+
+// Тесты
+// Объявлен класс Car.
+// Конструктор класса принимает объект со свойствами brand, model и price.
+// В результате вызова new Car({ brand: 'Audi', model: 'Q3', price: 36000 })
+// получится объект { brand: 'Audi', model: 'Q3', price: 36000 }.
+// В результате вызова new Car({ brand: 'BMW', model: 'X5', price: 58900 })
+// получится объект { brand: 'BMW', model: 'X5', price: 58900 }.
+// В результате вызова new Car({ brand: 'Nissan', model: 'Murano', price: 31700 })
+// получится объект { brand: 'Nissan', model: 'Murano', price: 31700 }.
+
+class Car {
+  brand;
+  model;
+  price;
+
+  constructor({ brand, model, price }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+}
+
+// Задание 10
+// Добавь классу Car две метода.
+
+//   getPrice() - возвращает значение
+// свойства price из объекта который его будет вызывать.
+//   changePrice(newPrice) - обновляет
+// значение свойства price у объекта который его будет
+// вызывать на newPrice.
+// Тесты
+// Объявлен класс Car.
+// Конструктор класса принимает объект
+// со свойствами brand, model и price.
+// Вызов Car.prototype.hasOwnProperty('getPrice') возвращает true.
+// Значение Car.prototype.getPrice это функция.
+// Вызов Car.prototype.hasOwnProperty('changePrice') возвращает true.
+// Значение Car.prototype.changePrice это функция.
+// У объекта, созданного вызовом
+// new Car({ brand: 'Audi', model: 'Q3', price: 36000 }),
+//   вызов метода getPrice() вернет число 36000.
+// У объекта, созданного вызовом
+// new Car({ brand: 'Audi', model: 'Q3', price: 36000 }),
+//   вызов метода changePrice(35000) и последующем вызове getPrice() вернет число 35000.
+class Car {
+  constructor({ brand, model, price }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+
+getPrice(){
+return this.price;
+}
+  
+changePrice(newPrice) {
+  this.price = newPrice;
+}
+}
+
+// Задание 11
+// Выполни рефакторинг класса Car так, чтобы свойство brand
+// было приватным и добавь два метода для публичного интерфейса,
+//   для чтения и изменения этого свойства.
+
+// getBrand() - возвращает значение приватного свойства brand.
+// changeBrand(newBrand) - изменяет значение приватного свойства brand на newBrand.
+// Тесты
+// Объявлен класс Car.
+// Свойство brand в классе Car объявлено приватным.
+// Конструктор класса принимает объект со свойствами brand, model и price.
+// В результате вызова new Car({ brand: 'Audi', model: 'Q3', price: 36000 })
+// получится объект { model: 'Q3', price: 36000 }.
+// В результате вызова new Car({ brand: 'BMW', model: 'X5', price: 58900 })
+// получится объект { model: 'X5', price: 58900 }.
+// В результате вызова new Car({ brand: 'Nissan', model: 'Murano', price: 31700 })
+// получится объект { model: 'Murano', price: 31700 }.
+// У экземпляра нет публичного свойства brand.
+// Метод getBrand() возвращает значение приватного свойства brand.
+// Метод changeBrand('Honda') изменяет значение приватного свойства brand на 'Honda'.
+class Car {
+  #brand;
+
+  constructor({ brand, model, price }) {
+    this.#brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+
+  getBrand() {
+    return this.#brand;
+  }
+
+  changeBrand(newBrand) {
+    this.#brand = newBrand;
+  }
+}

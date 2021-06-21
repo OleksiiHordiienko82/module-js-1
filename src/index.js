@@ -3664,3 +3664,270 @@ class Car {
     this.#price = newPrice;
   }
 }
+// Задание 15
+// Выполни рефакторинг класса Car.
+// Добавь публичное статическое свойство MAX_PRICE со значением 50000
+//   - максимально допустимая цена автомобиля.
+
+// Добавь сеттеру price проверку передаваемого значения параметра newPrice.
+// Если оно больше чем MAX_PRICE, сеттер ничего не делает, а если меньше или равно,
+//   то перезаписывает цену автомобиля.
+
+// Тесты
+// Объявлен класс Car.
+// У класса Car есть статическое свойство MAX_PRICE.
+// Значение статического свойства MAX_PRICE это число 50000.
+// У экземпляра нет свойства MAX_PRICE.
+// В классе Car объявлен геттер price.
+// В классе Car объявлен сеттер price.
+// У экземпляра класса Car вызов сеттера price, со значением
+// аргумента меньше чем значение MAX_PRICE, изменяет свойство #price.
+// У экземпляра класса Car вызов сеттера price, со значением
+// аргумента больше чем значение MAX_PRICE, не изменяет свойство #price.
+class Car {
+  static MAX_PRICE = 50000;
+
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (newPrice <= Car.MAX_PRICE) this.#price = newPrice;
+  }
+}
+
+const audi = new Car({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
+
+
+// Задание 16
+// Добавь классу Car публичный статический метод checkPrice(price),
+//   принимающий цену автомобиля.Метод должен сравнить значения параметра
+// price и приватного статического свойства MAX_PRICE.
+
+// Если цена автомобиля превышает максимальную, метод должен вернуть строку
+// 'Внимание! Цена превышает допустимую.'.
+// В противном случае метод должен вернуть строку 'Всё хорошо, цена в порядке.'.
+// Под объявлением класса мы добавили инициализацию экземпляра и вызовы методов,
+//   чтобы показать как будет использоваться метод checkPrice(price).
+
+// Тесты
+// Объявлен класс Car.
+// У класса Car есть статический метод checkPrice(price).
+// Вызов Car.checkPrice(36000) возвращает строку 'Всё хорошо, цена в порядке.'.
+// Вызов Car.checkPrice(18000) возвращает строку 'Всё хорошо, цена в порядке.'.
+// Вызов Car.checkPrice(64000) возвращает строку 'Внимание! Цена превышает допустимую.'.
+// Вызов Car.checkPrice(57000) возвращает строку 'Внимание! Цена превышает допустимую.'.
+
+class Car {
+  static #MAX_PRICE = 50000;
+
+  static checkPrice(price) {
+    if (price > Car.#MAX_PRICE) {
+      return "Внимание! Цена превышает допустимую.";
+    }
+    return "Всё хорошо, цена в порядке.";
+  }
+  constructor({ price }) {
+    this.price = price;
+  }
+}
+
+const audi = new Car({ price: 36000 });
+const bmw = new Car({ price: 64000 });
+
+console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
+console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
+
+// Задание 17
+// В приложении нужен администратор с возможностью добавлять
+// почты пользователей в чёрный список.
+
+// Объяви класс Admin, который наследует от класса User.
+// Добавь классу Admin публичное статическое свойство AccessLevel
+//   (уровень доступа), значение которого это объект { BASIC: 'basic', SUPERUSER: 'superuser' }.
+// Тесты
+// Объявлен класс Admin.
+// Класс Admin наследует от класса User.
+// У класса Admin есть публичное статическое свойство AccessLevel.
+// Обращение к Admin.AccessLevel.BASIC возвращает строку 'basic'.
+// Обращение к Admin.AccessLevel.SUPERUSER возвращает строку 'superuser'.
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+}
+
+// Задание 18
+// Добавь классу Admin метод constructor, который принимает
+// один параметр - объект настроек с двумя свойствами email и accessLevel.
+// Добавь классу Admin публичное свойство accessLevel,
+//   значение которого будет передаваться при вызове конструктора.
+
+// Чтобы показать как будет использоваться класс Admin,
+//   мы добавили инициализацию экземпляра под объявлением класса.
+
+// Тесты
+// Объявлен класс Admin.
+// Класс Admin наследует от класса User.
+// У класса Admin есть публичное статическое свойство AccessLevel.
+// У класса Admin есть метод constructor с параметром
+// в виде объекта { email, accessLevel }.
+// У класса Admin в конструкторе для свойства email
+// используется обращение к конструктору родительского класса.
+// Обращение к Admin.AccessLevel.BASIC возвращает строку 'basic'.
+// Обращение к Admin.AccessLevel.SUPERUSER возвращает строку 'superuser'.
+// У класса Admin есть публичное свойство accessLevel.
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  accessLevel;
+
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+}
+
+const mango = new Admin({
+  email: "mango@mail.com",
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mango.email); // mango@mail.com
+console.log(mango.accessLevel); // superuser
+
+// Задание 19
+// Добавь классу Admin следующие свойства и методы.
+
+// Публичное свойство blacklistedEmails
+// для хранения чёрного списка почтовых адресов
+// пользователей.Значение по умолчанию это пустой массив.
+// Публичный метод blacklist(email) для добавления
+// почты в чёрный список.Метод должен добавлять
+// значение параметра email в массив хранящийся в свойстве blacklistedEmails.
+// Публичный метод isBlacklisted(email) для проверки
+// почты в чёрном списке.Метод должен проверять наличие
+// значения параметра email в массиве хранящемся в свойстве
+// blacklistedEmails и возвращать true или false.
+// После объявления класса мы добавили инициализацию
+// экземпляра и вызовы методов в той последовательности, в
+// которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
+
+// Тесты
+// Объявлен класс Admin.
+// Класс Admin наследует от класса User.
+// У класса Admin есть публичное свойство blacklistedEmails.
+// У класса Admin есть публичный метод blacklist.
+// У класса Admin есть публичный метод isBlacklisted.
+// После вызова mango.blacklist('poly@mail.com')
+// значение свойства blacklistedEmails это массив['poly@mail.com'].
+// Вызов mango.isBlacklisted('mango@mail.com')
+// возвращает false.
+// Вызов mango.isBlacklisted('poly@mail.com')
+// возвращает true.
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+
+  static AccessLevel = {
+    BASIC: 'basic',
+    SUPERUSER: 'superuser'
+  };
+
+  accessLevel;
+  blacklistedEmails;
+
+  constructor({ email, accessLevel, blacklistedEmails = [] }) {
+    super(email);
+    
+    this.accessLevel = accessLevel;
+    this.blacklistedEmails = blacklistedEmails;
+  }
+  
+  blacklist(email) {
+  this.blacklistedEmails.push(email);
+  }
+  
+  isBlacklisted(email) {
+  if (this.blacklistedEmails.includes(email)) {
+   return true;
+  }
+    return false;
+  }
+}
+
+const mango = new Admin({
+  email: 'mango@mail.com',
+  accessLevel: Admin.AccessLevel.SUPERUSER
+});
+
+console.log(mango.email); // mango@mail.com
+console.log(mango.accessLevel); // superuser
+mango.blacklist('poly@mail.com');
+console.log(mango.blacklistedEmails); // 'poly@mail.com'
+console.log(mango.isBlacklisted('mango@mail.com')); //  false
+console.log(mango.isBlacklisted('poly@mail.com')); // true 

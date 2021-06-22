@@ -4509,4 +4509,221 @@ const getInactiveUsers = (users) => {
     return isNotActiveUsers; 
 };
 // Пиши код выше этой строки
+// Задание 24
+// Используя метод find() дополни код так, чтобы:
 
+// В переменной bookWithTitle получился объект книги название которой
+//   (свойство title) совпадает со значением переменной BOOK_TITLE.
+// В переменной bookByAuthor получился объект книги автор который
+//   (свойство author) совпадает со значением переменной AUTHOR.
+// Тесты
+// Объявлена переменная books.
+// Значение переменной books это массив.
+// Объявлена переменная BOOK_TITLE.
+// Значение переменной BOOK_TITLE это строка 'Сон смешного человека'.
+// Объявлена переменная AUTHOR.
+const books = [
+  { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+  { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+  { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+  { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+];
+const BOOK_TITLE = 'Сон смешного человека';
+const AUTHOR = 'Роберт Шекли';
+// Пиши код ниже этой строки
+
+const bookWithTitle = books.find((book) => book.title === 'Сон смешного человека');
+const bookByAuthor = books.find((book) => book.author === 'Роберт Шекли');
+
+// Задание 25
+// Дополни функцию getUserWithEmail(users, email) так, чтобы она
+// возвращала объект пользователя, почта которого(свойство email) совпадает со значением параметра email.
+// Тесты
+// Объявлена функция getUserWithEmail(users, email).
+// Для перебора параметра users используется метод find().
+// Если значение параметра email это 'shereeanthony@kog.com',
+//   функция возвращает объект пользователя с именем Sheree Anthony.
+// Если значение параметра email это 'elmahead@omatom.com',
+//   функция возвращает объект пользователя с именем Elma Head.
+// Если значение параметра email это 'blackburndotson@furnigeer.com',
+//   функция возвращает объект пользователя с именем Blackburn Dotson.
+// Если в массиве users нет пользователя с почтой из параметра email,
+//   функция возвращает undefined.
+// Вызов функции со случайными, но валидными аргументами,
+//   возвращает правильное значение.
+
+// Пиши код ниже этой строки
+const getUserWithEmail = (users, email) => {
+ const userWithEmail = users.find(function(user) {
+    return user.email === email;
+  }) 
+ return userWithEmail;
+};
+// Пиши код выше этой строки
+
+// Задание26
+// Используя метод every() дополни код так, чтобы:
+
+// // В переменной eachElementInFirstIsEven был результат
+// проверки всех элементов массива firstArray на чётность.
+// // В переменной eachElementInFirstIsOdd был результат
+// проверки всех элементов массива firstArray на нечётность.
+// // В переменной eachElementInSecondIsEven был результат
+// проверки всех элементов массива secondArray на чётность.
+// // В переменной eachElementInSecondIsOdd был результат
+// проверки всех элементов массива secondArray на нечётность.
+// // В переменной eachElementInThirdIsEven был результат
+// проверки всех элементов массива thirdArray на чётность.
+// // В переменной eachElementInThirdIsOdd был результат
+// проверки всех элементов массива thirdArray на нечётность.
+// Тесты
+// Объявлена переменная firstArray.
+// Значение переменной firstArray это массив [26, 94, 36, 18].
+// Объявлена переменная secondArray.
+// Значение переменной secondArray это массив [17, 61, 23].
+// Объявлена переменная thirdArray.
+// Значение переменной thirdArray это массив [17, 26, 94, 61, 36, 23, 18].
+// Объявлена переменная eachElementInFirstIsEven.
+// Значение переменной eachElementInFirstIsEven это буль true.
+// Объявлена переменная eachElementInFirstIsOdd.
+// Значение переменной eachElementInFirstIsOdd это буль false.
+// Объявлена переменная eachElementInSecondIsEven.
+// Значение переменной eachElementInSecondIsEven это буль false.
+// Объявлена переменная eachElementInSecondIsOdd.
+// Значение переменной eachElementInSecondIsOdd это буль true.
+// Объявлена переменная eachElementInThirdIsEven.
+// Значение переменной eachElementInThirdIsEven это буль false.
+// Объявлена переменная eachElementInThirdIsOdd.
+// Значение переменной eachElementInThirdIsOdd это буль false.
+// Для перебора массивов использован метод every().
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// Пиши код ниже этой строки
+
+const eachElementInFirstIsEven = firstArray.every((value) => value % 8);
+const eachElementInFirstIsOdd = firstArray.every((value) => value % 1);
+
+const eachElementInSecondIsEven = secondArray.every((value) => value % 0);
+const eachElementInSecondIsOdd = secondArray.every((value) => value % 3);
+
+const eachElementInThirdIsEven = thirdArray.every((value) => value % 0);
+const eachElementInThirdIsOdd = thirdArray.every((value) => value % 1);
+
+// Задание 27
+// Дополни функцию isEveryUserActive(users) так, чтобы
+// она проверяла все ли пользователи сейчас активны(свойство isActive) и возвращала true или false.
+
+// Тесты
+// Объявлена переменная isEveryUserActive
+// Переменной isEveryUserActive присвоена стрелочная функция с параметром (users).
+// Для перебора параметра users используется метод every().
+// Вызов функции с указанным массивом пользователей возвращает false.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+// Пиши код ниже этой строки
+const isEveryUserActive = (users) => {
+const everyUserActive = users.every(function(user){
+  return user.isActive;
+  }) 
+return everyUserActive;
+};
+// Пиши код выше этой строки
+
+// Задание 28
+// Используя метод some() дополни код так, чтобы:
+
+// В переменной anyElementInFirstIsEven был результат проверки
+// наличия чётных элементов в массиве firstArray.
+// В переменной anyElementInFirstIsOdd был результат
+// проверки наличия нечётных элементов в массиве firstArray.
+// В переменной anyElementInSecondIsEven был результат
+// проверки наличия чётных элементов в массиве secondArray.
+// В переменной anyElementInSecondIsOdd был результат
+// проверки наличия нечётных элементов в массиве secondArray.
+// В переменной anyElementInThirdIsEven был результат
+// проверки наличия чётных элементов в массиве thirdArray.
+// В переменной anyElementInThirdIsOdd был результат
+// проверки наличия нечётных элементов в массиве thirdArray.
+// Тесты
+// Объявлена переменная firstArray.
+// Значение переменной firstArray это массив [26, 94, 36, 18].
+// Объявлена переменная secondArray.
+// Значение переменной secondArray это массив [17, 61, 23].
+// Объявлена переменная thirdArray.
+// Значение переменной thirdArray это массив [17, 26, 94, 61, 36, 23, 18].
+// Объявлена переменная anyElementInFirstIsEven.
+// Значение переменной anyElementInFirstIsEven это буль true.
+// Объявлена переменная anyElementInFirstIsOdd.
+// Значение переменной anyElementInFirstIsOdd это буль false.
+// Объявлена переменная anyElementInSecondIsEven.
+// Значение переменной anyElementInSecondIsEven это буль false.
+// Объявлена переменная anyElementInSecondIsOdd.
+// Значение переменной anyElementInSecondIsOdd это буль true.
+// Объявлена переменная anyElementInThirdIsEven.
+// Значение переменной anyElementInThirdIsEven это буль true.
+// Объявлена переменная anyElementInThirdIsOdd.
+// Значение переменной anyElementInThirdIsOdd это буль true.
+// Для перебора массивов использован метод some().
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// Пиши код ниже этой строки
+
+const anyElementInFirstIsEven = firstArray.some(value => value % 8);
+const anyElementInFirstIsOdd = firstArray.some(value => value % 1);
+
+const anyElementInSecondIsEven = secondArray.some(value => value % 0);
+const anyElementInSecondIsOdd = secondArray.some(value => value % 3);
+
+const anyElementInThirdIsEven = thirdArray.some(value => value % 6);
+const anyElementInThirdIsOdd = thirdArray.some(value => value % 3);
+
+// Задание 29
+// Дополни функцию isAnyUserActive(users) так,
+//   чтобы она проверяла наличие активных пользователей
+// (свойство isActive) и возвращала true или false.
+// Тесты
+// Объявлена функция isAnyUserActive(users).
+// Для перебора параметра users используется метод some().
+// Вызов функции с указанным массивом пользователей возвращает true.
+// Вызов функции со случайными, но валидными аргументами, возвращает
+// правильное значение.
+// Пиши код ниже этой строки
+const isAnyUserActive = users => {
+   const anyUserActive = users.some(function(user){
+  return user.isActive;
+  }) 
+return anyUserActive;
+};
+// Пиши код выше этой строки
+
+// Задание 30
+// Игровому сервису необходим функционал подсчёта среднего
+// времени проведённого в играх.Дополни код так,
+//   чтобы в переменной totalPlayTime получилось общее игровое время из массива playtimes.
+
+// Тесты
+// Объявлена переменная players.
+// Значение переменной players это объект игроков с игровым временем каждого.
+// Объявлена переменная playtimes.
+// Значение переменной playtimes это массив [1270, 468, 710, 244].
+// Объявлена переменная totalPlayTime.
+// Значение переменной totalPlayTime это число 2692.
+// Для перебора массива playtimes используется метод reduce().
+// Объявлена переменная averagePlayTime.
+// Значение переменной averagePlayTime это число 673.
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
+// Пиши код ниже этой строки
+
+const totalPlayTime = Object.values(players).reduce(function(time,player){
+return time + player;
+},0);
+
+// Пиши код выше этой строки
+const averagePlayTime = totalPlayTime / playtimes.length;

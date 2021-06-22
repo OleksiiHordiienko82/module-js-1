@@ -4994,3 +4994,104 @@ const sortByName = users => {
  return byName; 
 };
 // Пиши код выше этой строки
+
+// Задание 41
+// Дополни код так, чтобы в переменной names получился массив имён авторов
+// в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
+
+// Тесты
+// Объявлена переменная books.
+// Значение переменной books это исходный массив объектов.
+// Объявлена переменная MIN_BOOK_RATING.
+// Значение переменной MIN_BOOK_RATING это число 8.
+// Объявлена переменная names.
+// Значение переменной names это массив ['Бернард Корнуэлл', 'Говард Лавкрафт', 'Ли Танит', 'Роберт Шекли'].
+// Нет объявленых переменных кроме books, MIN_BOOK_RATING и names.
+// Используется цепочка методов filter, map, sort.
+
+const books = [
+  { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+  { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+  { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+  { title: 'Красна как кровь', author: 'Ли Танит', rating: 8.14 },
+  { title: 'Сны В Ведьмином Доме', author: 'Говард Лавкрафт', rating: 8.67 }
+];
+const MIN_BOOK_RATING = 8;
+// Пиши код ниже этой строки
+
+const names = books
+.filter(book => book.rating > MIN_BOOK_RATING) 
+.map(book => book.author)
+.sort((prev,next) => prev.localeCompare(next))
+console.log(names);
+
+// Задание 42
+// Дополни функцию getNamesSortedByFriendCount(users) так,
+//   чтобы она возвращала массив имён пользователей отсортированный
+// по возрастанию количества их друзей(свойство friends).
+
+// Тесты
+// Объявлена переменная getNamesSortedByFriendCount.
+// Переменной getNamesSortedByFriendCount присвоена стрелочная функция с параметром (users).
+// В теле функции используется цепочка методов.
+// Значение параметра users не изменяется.
+// Вызов функции с указанным массивом пользователей возвращает массив
+// ['Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Sheree Anthony', 'Ross Vazquez',
+// 'Carey Barr', 'Blackburn Dotson'].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+
+// Пиши код ниже этой строки
+const getNamesSortedByFriendCount = users => {
+  return [...users].sort((prev,next) => prev.friends.length - next.friends.length).map((user =>user.name))
+};
+// Пиши код выше этой строки
+
+
+// Задание 43
+// Дополни функцию getSortedFriends(users) так,
+//   чтобы она возвращала массив уникальных имён друзей(свойство friends) отсортированный по алфавиту.
+
+// Тесты
+// Объявлена переменная getSortedFriends.
+// Переменной getSortedFriends присвоена стрелочная функция с параметром (users).
+// В теле функции используется цепочка методов в правильном порядке.
+// Значение параметра users не изменяется.
+// Вызов функции с указанным массивом пользователей возвращает массив
+// ['Adrian Cross', 'Aisha Tran', 'Briana Decker', 'Eddie Strong',
+//   'Goldie Gentry', 'Jacklyn Lucas', 'Jordan Sampson',
+//   'Linda Chapman', 'Marilyn Mcintosh', 'Naomi Buckner',
+//   'Padilla Garrison', 'Sharron Pace', 'Solomon Fokes'].
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+// Пиши код ниже этой строки
+const getSortedFriends = users => {
+  return users.flatMap(user => user.friends)
+  .filter(
+   (user, index, friends) => friends.indexOf(user) === index)
+  .sort((prevName,nextName) => prevName.localeCompare(nextName))  
+};
+// Пиши код выше этой строки
+
+// Задание 44
+// Дополни функцию getTotalBalanceByGender(users, gender) так,
+//   чтобы она возвращала общий баланс пользователей(свойство balance),
+//     пол которых(свойство gender) совпадает со значением параметра gender.
+
+// Тесты
+// Объявлена переменная getTotalBalanceByGender.
+// Переменной getTotalBalanceByGender присвоена стрелочная функция с параметрами (users, gender).
+// В теле функции используется цепочка методов в правильном порядке.
+// Значение параметра users не изменяется.
+// Если значение параметра gender это строка 'male', функция возвращает число 12053.
+// Если значение параметра gender это строка 'female', функция возвращает число 8863.
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение.
+// Пиши код ниже этой строки
+const getTotalBalanceByGender = (users, gender) => {
+  const balanceByGender = users.filter(user => {
+    return user.gender === gender
+  });
+  const totalBalance = balanceByGender.reduce((accum,user) => {
+      return accum + user.balance;
+  },0)
+  return totalBalance;
+};
+// Пиши код выше этой строки
